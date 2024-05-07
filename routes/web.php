@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DataJemaatController;
+use App\Http\Controllers\Admin\WartaJemaatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -45,7 +47,7 @@ use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 // Main Page Route
-Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
+Route::get('/dashboard', [Analytics::class, 'index'])->name('dashboard-analytics');
 
 // layout
 Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
@@ -53,6 +55,23 @@ Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('la
 Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
 Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
 Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
+
+// Admin
+Route::get('/data-jemaat', [DataJemaatController::class, 'index'])->name('data-jemaat');
+Route::get('/data-jemaat/create', [DataJemaatController::class, 'create']);
+Route::post('/data-jemaat', [DataJemaatController::class, 'store']);
+Route::get('/data-jemaat/{id}', [DataJemaatController::class, 'show']);
+Route::get('/data-jemaat/{id}/edit', [DataJemaatController::class, 'edit']);
+Route::put('/data-jemaat/{id}', [DataJemaatController::class, 'update']);
+Route::delete('/data-jemaat/{id}', [DataJemaatController::class, 'destroy']);
+
+Route::get('/warta-jemaat', [WartaJemaatController::class, 'index'])->name('warta-jemaat');
+Route::get('/warta-jemaat/create', [WartaJemaatController::class, 'create']);
+Route::post('/warta-jemaat', [WartaJemaatController::class, 'store']);
+Route::get('/warta-jemaat/{id}', [WartaJemaatController::class, 'show']);
+Route::get('/warta-jemaat/{id}/edit', [WartaJemaatController::class, 'edit']);
+Route::put('/warta-jemaat/{id}', [WartaJemaatController::class, 'update']);
+Route::delete('/warta-jemaat/{id}', [WartaJemaatController::class, 'destroy']);
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
@@ -62,7 +81,7 @@ Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-e
 Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
 
 // authentication
-Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
+Route::get('/', [LoginBasic::class, 'index'])->name('auth-login-basic');
 Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
 Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
 
