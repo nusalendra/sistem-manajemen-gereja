@@ -23,7 +23,7 @@ class WartaJemaatController extends Controller
      */
     public function create()
     {
-        return view('content.pages.admin.warta-jemaat.create', compact('data'));
+        return view('content.pages.admin.warta-jemaat.create');
     }
 
     /**
@@ -70,7 +70,17 @@ class WartaJemaatController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $wartaJemaat = WartaJemaat::find($id);
+        $wartaJemaat->judul = $request->judul;
+        $wartaJemaat->ayat = $request->ayat;
+        $wartaJemaat->hari = $request->hari;
+        $wartaJemaat->jam = $request->jam;
+        $wartaJemaat->nama_khutbah = $request->nama_khutbah;
+        $wartaJemaat->tempat = $request->tempat;
+        $wartaJemaat->liturgos = $request->liturgos;
+        $wartaJemaat->save();
+
+        return redirect('/warta-jemaat');
     }
 
     /**

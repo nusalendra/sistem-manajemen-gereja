@@ -5,9 +5,9 @@
 @section('content')
     <div class="card">
         <div class="d-flex justify-content-between card-header ">
-            <h5 class="text-dark fw-bold">Data Jemaat</h5>
-            <a href="/data-jemaat/create">
-                <button type="button" class="btn btn-primary">Tambah Jemaat</button>
+            <h5 class="text-dark fw-bold">Warta Jemaat</h5>
+            <a href="/warta-jemaat/create">
+                <button type="button" class="btn btn-primary">Tambah Warta Jemaat</button>
             </a>
         </div>
         <div class="card ps-3 pe-3 pb-3">
@@ -17,9 +17,10 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-xs font-weight-bolder text-start">No</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Nama Lengkap</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Jenis Kelamin</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Status Jemaat</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Hari / Jam</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Tempat</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Nama Khutbah</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Liturgos</th>
                                 <th class="text-uppercase text-xs font-weight-bolder">Aksi</th>
                             </tr>
                         </thead>
