@@ -43,6 +43,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function jemaat() {
+        return $this->hasOne(Jemaat::class);
+    }
+
     public function wartaJemaat() {
         return $this->hasOne(WartaJemaat::class);
     }
