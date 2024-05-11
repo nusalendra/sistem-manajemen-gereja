@@ -42,10 +42,44 @@
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <!-- Search -->
     <div class="navbar-nav align-items-center">
-        <div class="nav-item d-flex align-items-center">
-            <i class="mdi mdi-magnify mdi-24px lh-0"></i>
-            <input type="text" class="form-control border-0 shadow-none bg-body" placeholder="Search..."
-                aria-label="Search...">
+        <div class="app-brand justify-content-center">
+            @if (Auth::user()->role == 'Admin')
+                <h5 class="mt-3 text-dark fw-bold">Kerapatan Gereja Protestan Minahasa (KGPM)</h5>
+            @elseif(Auth::user()->role == 'Jemaat')
+                <div class="navbar-nav align-items-center">
+                    <div class="app-brand justify-content-center">
+                        <nav class="navbar navbar-example navbar-expand-lg ">
+                            <div class="container-fluid">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbar-ex-2" aria-controls="navbar-ex-2" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbar-ex-2">
+                                    <div class="navbar-nav me-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link {{ request()->routeIs('beranda') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                href="{{ route('beranda') }}">Beranda</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                href="{{ route('dashboard') }}">Pendaftaran Menikah</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                href="{{ route('dashboard') }}">Pendaftaran Baptis</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                href="{{ route('dashboard') }}">Pendaftaran Sidi</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
     <!-- /Search -->

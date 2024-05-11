@@ -44,6 +44,7 @@ use App\Http\Controllers\form_elements\BasicInput;
 use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
+use App\Http\Controllers\Jemaat\BerandaController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 // Main Page Route
@@ -72,6 +73,9 @@ Route::get('/warta-jemaat/{id}', [WartaJemaatController::class, 'show']);
 Route::get('/warta-jemaat/{id}/edit', [WartaJemaatController::class, 'edit']);
 Route::put('/warta-jemaat/{id}', [WartaJemaatController::class, 'update']);
 Route::delete('/warta-jemaat/{id}', [WartaJemaatController::class, 'destroy']);
+
+// Jemaat
+Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
