@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Baptis;
 use App\Models\Jemaat;
+use App\Models\Menikah;
+use App\Models\Sidi;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class DataJemaatController extends Controller
 {
@@ -31,18 +35,92 @@ class DataJemaatController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->username = $request->username;
-        $user->password = bcrypt($request->password);
-        $user->role = 'Jemaat';
-        $user->save();
+        if($request->jenis_jemaat == 'Jemaat Lama') {
+            $user = new User();
+            $user->username = $request->username;
+            $user->password = bcrypt($request->password);
+            $user->role = 'Jemaat';
+            $user->save();
+    
+            $jemaat = new Jemaat();
+            $jemaat->user_id = $user->id;
+            $jemaat->nama_lengkap = $request->nama_lengkap;
+            $jemaat->jenis_kelamin = $request->jenis_kelamin;
+            $jemaat->alamat = $request->alamat;
+            $jemaat->nomor_baptis = $request->nomor_baptis;
+            $jemaat->tanggal_lahir = $request->tanggal_lahir;
+            $jemaat->umur = $request->umur;
+            $jemaat->nama_ayah = $request->nama_ayah;
+            $jemaat->nama_ibu = $request->nama_ibu;
+            $jemaat->NIK = $request->NIK;
+            $jemaat->status_jemaat = 'Hidup';
+            $jemaat->save();
 
-        $jemaat = new Jemaat();
-        $jemaat->user_id = $user->id;
-        $jemaat->nama_lengkap = $request->nama_lengkap;
-        $jemaat->jenis_kelamin = $request->jenis_kelamin;
-        $jemaat->status_jemaat = 'Hidup';
-        $jemaat->save();
+            $menikah = null;
+            if($request->filled('tanggal_pernikahan')) {
+                $menikah = new Menikah();
+                $menikah->jemaat_id = $jemaat->id;
+                $menikah->nama_pasangan = $request->nama_pasangan;
+                $menikah->nama_ayah_pasangan = $request->nama_ayah_pasangan;
+                $menikah->nama_ibu_pasangan = $request->nama_ibu_pasangan;
+                $menikah->umur_pasangan = $request->umur_pasangan;
+                $menikah->tanggal_lahir_pasangan = $request->tanggal_lahir_pasangan;
+                $menikah->nomor_baptis_pasangan = $request->nomor_baptis_pasangan;
+                $menikah->tanggal_pernikahan = $request->tanggal_pernikahan;
+                $menikah->save();
+            }
+
+            $baptis = null;
+            if ($request->filled('tanggal_baptis')) {
+                $baptis = new Baptis();
+                $baptis->jemaat_id = $jemaat->id;
+                if ($request->hasFile('sertifikat')) {
+                    $file = $request->file('sertifikat');
+                    $filename = 'Sertifikat Baptis' . '_' . $jemaat->nama_lengkap  . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('sertifikat-baptis'), $filename);
+                    $baptis->sertifikat = $filename;
+                }
+                $baptis->tanggal_baptis = $request->tanggal_baptis;
+                $baptis->save();
+            }
+
+            $sidi = null;
+            if($request->filled('tanggal_sidi')) {
+                $sidi = new Sidi();
+                $sidi->jemaat_id = $jemaat->id;
+                $sidi->gereja_yang_membaptis = $request->gereja_yang_membaptis;
+                $sidi->tanggal_sidi = $request->tanggal_sidi;
+                $sidi->save();
+            }
+
+            if($menikah !== null) {
+                $jemaat->status_menikah = 'Sudah Menikah';
+                $jemaat->save();
+            }
+
+            if($baptis !== null) {
+                $jemaat->status_baptis = 'Sudah Baptis';
+                $jemaat->save();
+            }
+
+            if($sidi !== null) {
+                $jemaat->status_sidi = 'Sudah Sidi';
+                $jemaat->save();
+            }
+        } else {
+            $user = new User();
+            $user->username = $request->username;
+            $user->password = bcrypt($request->password);
+            $user->role = 'Jemaat';
+            $user->save();
+    
+            $jemaat = new Jemaat();
+            $jemaat->user_id = $user->id;
+            $jemaat->nama_lengkap = $request->nama_lengkap;
+            $jemaat->jenis_kelamin = $request->jenis_kelamin;
+            $jemaat->status_jemaat = 'Hidup';
+            $jemaat->save();
+        }
 
         return redirect('/data-jemaat');
     }
@@ -52,7 +130,8 @@ class DataJemaatController extends Controller
      */
     public function show(string $id)
     {
-        $data = Jemaat::find($id);
+        $data = Jemaat::with('menikah')->find($id);
+        
         return view('content.pages.admin.data-jemaat.show', compact('data'));
     }
 
@@ -70,7 +149,83 @@ class DataJemaatController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Handle Update Data Jemaat
+        $jemaat = Jemaat::find($id);
+        $jemaat->nama_lengkap = $request->nama_lengkap;
+        $jemaat->jenis_kelamin = $request->jenis_kelamin;
+        $jemaat->alamat = $request->alamat;
+        $jemaat->nomor_baptis = $request->nomor_baptis;
+        $jemaat->tanggal_lahir = $request->tanggal_lahir;
+        $jemaat->umur = $request->umur;
+        $jemaat->nama_ayah = $request->nama_ayah;
+        $jemaat->nama_ibu = $request->nama_ibu;
+        $jemaat->NIK = $request->NIK;
+        $jemaat->status_jemaat = $request->status_jemaat;
+        $jemaat->save();
+
+        // Handle Update Data User
+        $user = User::where('id', $jemaat->user_id)->first();
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        // Handle Update / Create Data Menikah
+        if ($request->has('menikah')) {
+            foreach ($request->input('menikah') as $index => $menikahData) {
+                Menikah::updateOrCreate(
+                    ['id' => $menikahData['id'] ?? null, 'jemaat_id' => $jemaat->id],
+                    [
+                        'jemaat_id' => $jemaat->id,
+                        'nama_pasangan' => $menikahData['nama_pasangan'],
+                        'umur_pasangan' => $menikahData['umur_pasangan'],
+                        'nama_ayah_pasangan' => $menikahData['nama_ayah_pasangan'],
+                        'nama_ibu_pasangan' => $menikahData['nama_ibu_pasangan'],
+                        'tanggal_lahir_pasangan' => $menikahData['tanggal_lahir_pasangan'],
+                        'nomor_baptis_pasangan' => $menikahData['nomor_baptis_pasangan'],
+                        'tanggal_pernikahan' => $menikahData['tanggal_pernikahan']
+                    ]
+                );
+            }
+        }
+
+        // Handle Update / Create Data Baptis
+        $dataBaptis = [
+            'jemaat_id' => $jemaat->id,
+            'tanggal_baptis' => $request->tanggal_baptis,
+        ];
+
+        $baptis = Baptis::where('jemaat_id', $jemaat->id)->first();
+
+        if ($request->hasFile('sertifikat')) {
+            $file = $request->file('sertifikat');
+            $filename = 'Sertifikat Baptis' . '_' . $jemaat->nama_lengkap . '.' . $file->getClientOriginalExtension();
+        
+            if ($baptis && $baptis->sertifikat) {
+                File::delete(public_path('sertifikat-baptis/' . $baptis->sertifikat));
+            }
+        
+            $file->move(public_path('sertifikat-baptis'), $filename);
+            $dataBaptis['sertifikat'] = $filename;
+        }
+
+        $baptis = Baptis::updateOrCreate(
+            ['jemaat_id' => $jemaat->id],
+            $dataBaptis
+        );
+
+        // Handle Update / Create Data Sidi
+        $dataSidi = [
+            'jemaat_id' => $jemaat->id,
+            'gereja_yang_membaptis' => $request->gereja_yang_membaptis,
+            'tanggal_sidi' => $request->tanggal_sidi
+        ];
+    
+        Sidi::updateOrCreate(
+            ['jemaat_id' => $jemaat->id],
+            $dataSidi
+        );
+
+        return redirect('/data-jemaat');
     }
 
     /**
@@ -80,6 +235,11 @@ class DataJemaatController extends Controller
     {
         $data = Jemaat::find($id);
         $user = User::where('id', $data->user_id)->first();
+        
+        $baptis = Baptis::where('jemaat_id', $data->id)->first();
+        if($baptis) {
+            File::delete(public_path('sertifikat-baptis/' . $baptis->sertifikat));
+        }
         
         $user->delete();
         $data->delete();

@@ -4,10 +4,10 @@
       "menuHeader": "Pages"
     },
     {
-      "url": "/sidebar",
-      "name": "Dashboards",
+      "url": "/dashboard",
+      "name": "Dashboard",
       "icon": "menu-icon tf-icons mdi mdi-home-outline",
-      "slug": "dashboard-analytics"
+      "slug": "dashboard"
     },
     {
       "url": "/data-jemaat",
