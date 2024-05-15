@@ -44,7 +44,8 @@
     <div class="navbar-nav align-items-center">
         <div class="app-brand justify-content-center">
             @if (Auth::user()->role == 'Admin')
-                <h5 class="mt-3 text-dark fw-bold">Kerapatan Gereja Protestan Minahasa (KGPM)</h5>
+                {{-- <img src="logo-transparan.png" alt="" width="50"> --}}
+                <h5 class="mt-3 text-dark fw-bold">Gereja Huria Kristen Batak Protestan (HKBP)</h5>
             @elseif(Auth::user()->role == 'Jemaat')
                 <div class="navbar-nav align-items-center">
                     <div class="app-brand justify-content-center">
@@ -84,15 +85,6 @@
     </div>
     <!-- /Search -->
     <ul class="navbar-nav flex-row align-items-center ms-auto">
-
-        <!-- Place this tag where you want the button to render. -->
-        <li class="nav-item lh-1 me-3">
-            <a class="github-button"
-                href="https://github.com/themeselection/materio-bootstrap-html-laravel-admin-template-free"
-                data-icon="octicon-star" data-size="large" data-show-count="true"
-                aria-label="Star themeselection/materio-bootstrap-html-laravel-admin-template-free on GitHub">Star</a>
-        </li>
-
         <!-- User -->
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
