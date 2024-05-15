@@ -15,4 +15,16 @@ class Jemaat extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function baptis() {
+        return $this->hasOne(Baptis::class);
+    }
+
+    public function menikah() {
+        return $this->hasMany(Menikah::class);
+    }
+
+    public function sidi() {
+        return $this->hasOne(Sidi::class);
+    }
 }

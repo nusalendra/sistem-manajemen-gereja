@@ -87,8 +87,10 @@
                                                 </a>
                                             </div>
                                             <div class="ms-2 d-flex flex-column justify-content-center">
-                                                <form action="/data-jemaat/{{ $item->id }}" method="POST"
-                                                    role="form text-left">
+                                                <form id="delete-form-{{ $item->id }}"
+                                                    action="/data-jemaat/{{ $item->id }}" method="POST"
+                                                    role="form text-left"
+                                                    onsubmit="event.preventDefault(); hapusData({{ $item->id }})">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">
@@ -118,4 +120,22 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function hapusData(id) {
+            Swal.fire({
+                title: "Hapus Data Jemaat?",
+                text: "Data Jemaat akan dihapus secara permanen!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya, Hapus"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form-' + id).submit();
+                }
+            });
+        }
+    </script>
 @endsection

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PendaftaranSidi extends Model
+class Baptis extends Model
 {
     use HasFactory;
-    protected $table = 'pendaftaran_sidi';
+    protected $table = 'baptis';
     protected $primarykey = 'id';
-    protected $fillable = ['jemaat_id', 'gereja_yang_membaptis', 'tanggal_sidi'];
+    protected $fillable = ['jemaat_id', 'sertifikat', 'tanggal_baptis'];
 
     public function jemaat() {
         return $this->belongsTo(Jemaat::class);

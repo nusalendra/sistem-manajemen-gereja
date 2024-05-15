@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pendaftaran_baptis', function (Blueprint $table) {
+        Schema::create('menikah', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jemaat_id')->constrained('jemaat')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('sertifikat')->nullable();
-            $table->date('tanggal_baptis')->nullable();
+            $table->string('nama_pasangan');
+            $table->string('nama_ayah_pasangan');
+            $table->string('nama_ibu_pasangan');
+            $table->string('umur_pasangan');
+            $table->date('tanggal_lahir_pasangan');
+            $table->string('nomor_baptis_pasangan');
+            $table->date('tanggal_pernikahan');
             $table->timestamps();
         });
     }
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pendaftaran_baptis');
+        Schema::dropIfExists('menikah');
     }
 };
