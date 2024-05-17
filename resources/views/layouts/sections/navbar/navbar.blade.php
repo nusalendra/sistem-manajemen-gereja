@@ -112,28 +112,14 @@
                 <li>
                     <div class="dropdown-divider my-1"></div>
                 </li>
-                <li>
-                    <a class="dropdown-item" href="javascript:void(0);">
-                        <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
-                        <span class="align-middle">My Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="javascript:void(0);">
-                        <i class='mdi mdi-cog-outline me-1 mdi-20px'></i>
-                        <span class="align-middle">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="javascript:void(0);">
-                        <span class="d-flex align-items-center align-middle">
-                            <i class="flex-shrink-0 mdi mdi-credit-card-outline me-1 mdi-20px"></i>
-                            <span class="flex-grow-1 align-middle ms-1">Billing</span>
-                            <span
-                                class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'Jemaat')
+                    <li>
+                        <a class="dropdown-item" href="/profile">
+                            <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
+                            <span class="align-middle">Profil Saya</span>
+                        </a>
+                    </li>
+                @endif
                 <li>
                     <div class="dropdown-divider my-1"></div>
                 </li>

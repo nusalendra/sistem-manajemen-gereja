@@ -43,6 +43,7 @@ use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\Jemaat\BerandaController;
+use App\Http\Controllers\Jemaat\ProfileController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 // Main Page Route
@@ -74,6 +75,11 @@ Route::delete('/warta-jemaat/{id}', [WartaJemaatController::class, 'destroy']);
 
 // Jemaat
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
+
+Route::get('/profile', [ProfileController::class, 'profilSaya'])->name('profile');
+Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('/riwayat', [ProfileController::class, 'riwayat'])->name('riwayat');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
