@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('jemaat_id')->constrained('jemaat')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('sertifikat')->nullable();
             $table->date('tanggal_baptis')->nullable();
+            $table->string('nomor_baptis')->nullable();
+            $table->string('status_baptis')->nullable();
             $table->timestamps();
         });
     }

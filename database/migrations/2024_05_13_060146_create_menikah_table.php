@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('tanggal_lahir_pasangan');
             $table->string('nomor_baptis_pasangan');
             $table->date('tanggal_pernikahan');
+            $table->string('status_menikah')->nullable();
             $table->timestamps();
         });
     }
