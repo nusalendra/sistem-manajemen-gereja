@@ -13,10 +13,6 @@ class ProfileController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     return view('content.pages.jemaat.beranda.profile.profil-saya');
-    // }
 
     public function profilSaya() {
         $user = Auth::user();

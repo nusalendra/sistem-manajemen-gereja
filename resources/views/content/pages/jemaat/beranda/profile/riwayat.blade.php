@@ -103,14 +103,14 @@
                                             Baptis</label>
                                         <div class="col-sm-10">
                                             <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                                for="basic-default-name">{{ $data->nomor_baptis }}</label>
+                                                for="basic-default-name">{{ $data->baptis->nomor_baptis }}</label>
                                         </div>
                                         {{-- Status Baptis --}}
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Status
                                             Baptis</label>
                                         <div class="col-sm-10">
                                             <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                                for="basic-default-name">{{ $data->status_baptis }}</label>
+                                                for="basic-default-name">{{ $data->baptis->status_baptis }}</label>
                                         </div>
                                     @else
                                         <p class="col-sm-10">Tidak ada data riwayat baptis</p>
@@ -140,7 +140,7 @@
                                             Sidi</label>
                                         <div class="col-sm-10">
                                             <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                                for="basic-default-name">{{ $data->status_sidi }}</label>
+                                                for="basic-default-name">{{ $data->sidi->status_sidi }}</label>
                                         </div>
                                     @else
                                         <p class="col-sm-10">Tidak ada data riwayat sidi</p>
