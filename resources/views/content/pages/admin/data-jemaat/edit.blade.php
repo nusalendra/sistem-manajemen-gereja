@@ -86,22 +86,19 @@
                     <div>
                         <h5 class="mb-4 fw-semibold">Data Menikah</h5>
                     </div>
-                    @forelse ($data->menikah as $index => $menikah)
-                        @if ($data->menikah->count() > 1)
-                            <h6 class="mt-3 fw-semibold">Pernikahan {{ $index + 1 }}</h6>
-                        @endif
-                        <input type="hidden" name="menikah[{{ $index }}][id]" value="{{ $menikah->id }}">
+                    @forelse ($menikah as $index => $item)
+                        <input type="hidden" name="menikah[{{ $index }}][id]" value="{{ $item->id }}">
                         <div class="d-flex">
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="text" name="menikah[{{ $index }}][nama_pasangan]"
                                     class="form-control" id="nama_pasangan_{{ $index }}"
-                                    placeholder="Masukkan Nama Lengkap Pasangan" value="{{ $menikah->nama_pasangan }}" />
+                                    placeholder="Masukkan Nama Lengkap Pasangan" value="{{ $item->nama_pasangan }}" />
                                 <label for="nama_pasangan_{{ $index }}">Nama lengkap Pasangan</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="text" name="menikah[{{ $index }}][umur_pasangan]"
                                     class="form-control" id="umur_pasangan_{{ $index }}"
-                                    placeholder="Masukkan Umur Pasangan" value="{{ $menikah->umur_pasangan }}" />
+                                    placeholder="Masukkan Umur Pasangan" value="{{ $item->umur_pasangan }}" />
                                 <label for="umur_pasangan_{{ $index }}">Umur Pasangan</label>
                             </div>
                         </div>
@@ -109,14 +106,13 @@
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="text" name="menikah[{{ $index }}][nama_ayah_pasangan]"
                                     class="form-control" id="nama_ayah_pasangan_{{ $index }}"
-                                    placeholder="Masukkan Nama Ayah Pasangan"
-                                    value="{{ $menikah->nama_ayah_pasangan }}" />
+                                    placeholder="Masukkan Nama Ayah Pasangan" value="{{ $item->nama_ayah_pasangan }}" />
                                 <label for="nama_ayah_pasangan_{{ $index }}">Nama Ayah Pasangan</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="text" name="menikah[{{ $index }}][nama_ibu_pasangan]"
                                     class="form-control" id="nama_ibu_pasangan_{{ $index }}"
-                                    placeholder="Masukkan Nama Ibu Pasangan" value="{{ $menikah->nama_ibu_pasangan }}" />
+                                    placeholder="Masukkan Nama Ibu Pasangan" value="{{ $item->nama_ibu_pasangan }}" />
                                 <label for="nama_ibu_pasangan_{{ $index }}">Nama Ibu Pasangan</label>
                             </div>
                         </div>
@@ -125,14 +121,14 @@
                                 <input type="date" name="menikah[{{ $index }}][tanggal_lahir_pasangan]"
                                     class="form-control" id="tanggal_lahir_pasangan_{{ $index }}"
                                     placeholder="Masukkan Tanggal Lahir Pasangan"
-                                    value="{{ $menikah->tanggal_lahir_pasangan }}" />
+                                    value="{{ $item->tanggal_lahir_pasangan }}" />
                                 <label for="tanggal_lahir_pasangan_{{ $index }}">Tanggal Lahir Pasangan</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="text" name="menikah[{{ $index }}][nomor_baptis_pasangan]"
                                     class="form-control" id="nomor_baptis_pasangan_{{ $index }}"
                                     placeholder="Masukkan Nomor Baptis Pasangan"
-                                    value="{{ $menikah->nomor_baptis_pasangan }}" />
+                                    value="{{ $item->nomor_baptis_pasangan }}" />
                                 <label for="nomor_baptis_pasangan_{{ $index }}">Nomor Baptis Pasangan</label>
                             </div>
                         </div>
@@ -140,9 +136,20 @@
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="date" name="menikah[{{ $index }}][tanggal_pernikahan]"
                                     class="form-control" id="tanggal_pernikahan_{{ $index }}"
-                                    placeholder="Masukkan Tanggal Pernikahan"
-                                    value="{{ $menikah->tanggal_pernikahan }}" />
+                                    placeholder="Masukkan Tanggal Pernikahan" value="{{ $item->tanggal_pernikahan }}" />
                                 <label for="tanggal_pernikahan_{{ $index }}">Tanggal Pernikahan</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <select name="menikah[{{ $index }}][status_menikah]" class="form-select"
+                                    aria-label="Default select example" required>
+                                    <option selected disabled>Pilih Status Menikah</option>
+                                    <option value="Sudah Menikah"
+                                        {{ $item->status_menikah === 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah
+                                    </option>
+                                    <option value="Cerai" {{ $item->status_menikah === 'Cerai' ? 'selected' : '' }}>Cerai
+                                    </option>
+                                </select>
+                                <label for="status_menikah">Ubah Status Menikah</label>
                             </div>
                         </div>
                     @empty
@@ -211,7 +218,8 @@
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
-                                    placeholder="Masukkan Nomor Baptis (Opsional)" value="{{ $data->nomor_baptis }}" />
+                                    placeholder="Masukkan Nomor Baptis (Opsional)"
+                                    value="{{ $data->baptis->nomor_baptis }}" />
                                 <label for="nomor_baptis">Nomor Baptis</label>
                             </div>
                         </div>

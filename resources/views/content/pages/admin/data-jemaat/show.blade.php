@@ -64,12 +64,6 @@
                                 <label class="col-form-label fw-bold text-dark"
                                     for="basic-default-name">{{ $data->NIK }}</label>
                             </div>
-                            {{-- Nomor Baptis --}}
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">Nomor Baptis</label>
-                            <div class="col-sm-10">
-                                <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                    for="basic-default-name">{{ $data->nomor_baptis }}</label>
-                            </div>
                             {{-- Nama Ayah --}}
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Nama Ayah</label>
                             <div class="col-sm-10">
@@ -89,56 +83,53 @@
                             <div>
                                 <h5 class="mb-2 fw-semibold">Riwayat Menikah</h5>
                             </div>
-                            @forelse ($data->menikah as $index => $menikah)
-                                @if ($data->menikah->count() > 1)
-                                    <h6 class="mt-3 fw-semibold">Pernikahan {{ $index + 1 }}</h6>
-                                @endif
+                            @forelse ($menikah as $index => $item)
                                 {{-- Nama Pasangan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nama Pasangan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $menikah->nama_pasangan }}</label>
+                                        for="basic-default-name">{{ $item->nama_pasangan }}</label>
                                 </div>
                                 {{-- Tanggal Lahir Pasangan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Tanggal Lahir
                                     Pasangan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ \Carbon\Carbon::parse($menikah->tanggal_lahir_pasangan)->translatedFormat('d F Y') }}</label>
+                                        for="basic-default-name">{{ \Carbon\Carbon::parse($item->tanggal_lahir_pasangan)->translatedFormat('d F Y') }}</label>
                                 </div>
                                 {{-- Umur Pasangan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Umur Pasangan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $menikah->umur_pasangan }}</label>
+                                        for="basic-default-name">{{ $item->umur_pasangan }}</label>
                                 </div>
                                 {{-- Nomor Baptis Pasangan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nomor Baptis
                                     Pasangan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $menikah->nomor_baptis_pasangan }}</label>
+                                        for="basic-default-name">{{ $item->nomor_baptis_pasangan }}</label>
                                 </div>
                                 {{-- Tanggal Pernikahan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Tanggal
                                     Pernikahan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ \Carbon\Carbon::parse($menikah->tanggal_pernikahan)->translatedFormat('d F Y') }}</label>
+                                        for="basic-default-name">{{ \Carbon\Carbon::parse($item->tanggal_pernikahan)->translatedFormat('d F Y') }}</label>
                                 </div>
                                 {{-- Nama Ayah Pasangan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nama Ayah
                                     Pasangan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $menikah->nama_ayah_pasangan }}</label>
+                                        for="basic-default-name">{{ $item->nama_ayah_pasangan }}</label>
                                 </div>
                                 {{-- Nama Ibu Pasangan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nama Ibu
                                     Pasangan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $menikah->nama_ibu_pasangan }}</label>
+                                        for="basic-default-name">{{ $item->nama_ibu_pasangan }}</label>
                                 </div>
                             @empty
                                 <p class="col-sm-10">Tidak ada data riwayat menikah</p>
@@ -159,13 +150,13 @@
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nomor Baptis</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $data->nomor_baptis }}</label>
+                                        for="basic-default-name">{{ $data->baptis->nomor_baptis }}</label>
                                 </div>
                                 {{-- Status Baptis --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Status Baptis</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $data->status_baptis }}</label>
+                                        for="basic-default-name">{{ $data->baptis->status_baptis }}</label>
                                 </div>
                             @else
                                 <p class="col-sm-10">Tidak ada data riwayat baptis</p>
@@ -193,7 +184,7 @@
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Status Sidi</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $data->status_sidi }}</label>
+                                        for="basic-default-name">{{ $data->sidi->status_sidi }}</label>
                                 </div>
                             @else
                                 <p class="col-sm-10">Tidak ada data riwayat sidi</p>

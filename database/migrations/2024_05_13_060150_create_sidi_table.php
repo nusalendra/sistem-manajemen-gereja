@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('jemaat_id')->constrained('jemaat')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('gereja_yang_membaptis')->nullable();
             $table->date('tanggal_sidi')->nullable();
+            $table->string('status_sidi')->nullable();
             $table->timestamps();
         });
     }

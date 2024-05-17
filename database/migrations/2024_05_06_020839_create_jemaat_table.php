@@ -21,15 +21,11 @@ return new class extends Migration {
       $table->string('jenis_kelamin');
       $table->string('status_jemaat');
       $table->string('alamat')->nullable();
-      $table->string('nomor_baptis')->nullable();
       $table->date('tanggal_lahir')->nullable();
       $table->string('umur')->nullable();
       $table->string('nama_ayah')->nullable();
       $table->string('nama_ibu')->nullable();
       $table->string('NIK')->nullable();
-      $table->string('status_baptis')->nullable();
-      $table->string('status_menikah')->nullable();
-      $table->string('status_sidi')->nullable();
       $table->timestamps();
     });
   }
