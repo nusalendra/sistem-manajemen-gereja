@@ -66,9 +66,11 @@ class ProfileController extends Controller
     public function update(Request $request, string $id)
     {
         $user = User::find($id);
-        $user->username = $request->username;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        if($request->password !== null) {
+            $user->username = $request->username;
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
 
         $jemaat = Jemaat::where('user_id', $id)->first();
         $jemaat->nama_lengkap = $request->nama_lengkap;
