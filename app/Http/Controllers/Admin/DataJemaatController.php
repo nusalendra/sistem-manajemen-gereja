@@ -154,9 +154,11 @@ class DataJemaatController extends Controller
 
     // Handle Update Data User
     $user = User::where('id', $jemaat->user_id)->first();
-    $user->username = $request->username;
-    $user->password = bcrypt($request->password);
-    $user->save();
+    if($request->password !== null) {
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->save();
+    }
 
     // Handle Update / Create Data Menikah
     if ($request->has('menikah')) {
