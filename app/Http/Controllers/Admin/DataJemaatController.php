@@ -184,49 +184,53 @@ class DataJemaatController extends Controller
     }
 
     // Handle Update / Create Data Baptis
-    $dataBaptis = [
-        'jemaat_id' => $jemaat->id,
-        'tanggal_baptis' => $request->tanggal_baptis,
-        'nomor_baptis' => $request->nomor_baptis
-    ];
-
-    $baptis = Baptis::where('jemaat_id', $jemaat->id)->first();
-
-    if ($request->hasFile('sertifikat')) {
-        $file = $request->file('sertifikat');
-        $filename = 'Sertifikat Baptis' . '_' . $jemaat->nama_lengkap . '.' . $file->getClientOriginalExtension();
-
-        if ($baptis && $baptis->sertifikat) {
-            File::delete(public_path('sertifikat-baptis/' . $baptis->sertifikat));
+    if($request->tanggal_baptis !== null || $request->nomor_baptis !== null) {
+        $dataBaptis = [
+            'jemaat_id' => $jemaat->id,
+            'tanggal_baptis' => $request->tanggal_baptis,
+            'nomor_baptis' => $request->nomor_baptis
+        ];
+    
+        $baptis = Baptis::where('jemaat_id', $jemaat->id)->first();
+    
+        if ($request->hasFile('sertifikat')) {
+            $file = $request->file('sertifikat');
+            $filename = 'Sertifikat Baptis' . '_' . $jemaat->nama_lengkap . '.' . $file->getClientOriginalExtension();
+    
+            if ($baptis && $baptis->sertifikat) {
+                File::delete(public_path('sertifikat-baptis/' . $baptis->sertifikat));
+            }
+    
+            $file->move(public_path('sertifikat-baptis'), $filename);
+            $dataBaptis['sertifikat'] = $filename;
         }
-
-        $file->move(public_path('sertifikat-baptis'), $filename);
-        $dataBaptis['sertifikat'] = $filename;
-    }
-
-    $baptis = Baptis::updateOrCreate(
-        ['jemaat_id' => $jemaat->id],
-        $dataBaptis
-    );
-
-    if ($baptis) {
-        $baptis->status_baptis = 'Sudah Baptis';
+    
+        $baptis = Baptis::updateOrCreate(
+            ['jemaat_id' => $jemaat->id],
+            $dataBaptis
+        );
+    
+        if ($baptis) {
+            $baptis->status_baptis = 'Sudah Baptis';
+        }
     }
 
     // Handle Update / Create Data Sidi
-    $dataSidi = [
-        'jemaat_id' => $jemaat->id,
-        'gereja_yang_membaptis' => $request->gereja_yang_membaptis,
-        'tanggal_sidi' => $request->tanggal_sidi
-    ];
-
-    $sidi = Sidi::updateOrCreate(
-        ['jemaat_id' => $jemaat->id],
-        $dataSidi
-    );
-
-    if ($sidi) {
-        $sidi->status_sidi = 'Sudah Sidi';
+    if($request->gereja_yang_membaptis !== null || $request->tanggal_sidi !== null) {
+        $dataSidi = [
+            'jemaat_id' => $jemaat->id,
+            'gereja_yang_membaptis' => $request->gereja_yang_membaptis,
+            'tanggal_sidi' => $request->tanggal_sidi
+        ];
+    
+        $sidi = Sidi::updateOrCreate(
+            ['jemaat_id' => $jemaat->id],
+            $dataSidi
+        );
+    
+        if ($sidi) {
+            $sidi->status_sidi = 'Sudah Sidi';
+        }
     }
 
     return redirect('/data-jemaat');
