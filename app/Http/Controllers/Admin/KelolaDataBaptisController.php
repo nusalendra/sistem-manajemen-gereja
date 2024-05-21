@@ -13,7 +13,7 @@ class KelolaDataBaptisController extends Controller
      */
     public function index()
     {
-        $data = Baptis::where('status_baptis', '=', 'Menunggu Konfirmasi')->get();
+        $data = Baptis::all();
         
         return view('content.pages.admin.kelola-data-baptis.index', compact('data'));
     }
@@ -60,9 +60,18 @@ class KelolaDataBaptisController extends Controller
         $baptis = Baptis::find($id);
         
         if ($request->action == 'konfirmasi_baptis') {
-            $baptis->status_baptis = 'Sudah Baptis';
+            $baptis->status_baptis = 'Dikonfirmasi';
         } elseif ($request->action == 'tolak_baptis') {
             $baptis->status_baptis = 'Pendaftaran Baptis Ditolak';
+        } elseif($request->action == 'dikonfirmasi') {
+            if ($request->hasFile('sertifikat')) {
+                $file = $request->file('sertifikat');
+                $filename = $baptis->jemaat->nama_lengkap . '_' . $baptis->tanggal_baptis . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('sertifikat'), $filename);
+                $baptis->sertifikat = $filename;
+            }
+            $baptis->nomor_baptis = $request->nomor_baptis;
+            $baptis->status_baptis = 'Sudah Baptis';
         }
 
         $baptis->save();
