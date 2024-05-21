@@ -21,48 +21,52 @@
                 </div>
                 <div class="d-flex">
                     <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                        <input type="text" name="nama" class="form-control" id="nama"
-                            placeholder="Masukkan Nama Lengkap Anda" value="{{ $data->nama_lengkap }}" readonly />
-                        <label for="nama">Nama lengkap Anda</label>
+                        <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap"
+                            value="{{ $data->nama_lengkap }}" readonly />
+                        <label for="nama">Nama lengkap</label>
                     </div>
                     <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                        <input type="text" name="umur" class="form-control" id="umur"
-                            placeholder="Masukkan Umur Anda" value="{{ $data->umur }}" readonly />
-                        <label for="umur">Umur Anda</label>
+                        <input type="text" name="nama" class="form-control" id="nama" placeholder="Jenis Kelamin"
+                            value="{{ $data->jenis_kelamin }}" readonly />
+                        <label for="nama">Jenis Kelamin</label>
+                    </div>
+                    <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                        <input type="text" name="umur" class="form-control" id="umur" placeholder="Umur"
+                            value="{{ $data->umur }}" readonly />
+                        <label for="umur">Umur</label>
                     </div>
                 </div>
                 <div class="d-flex">
                     <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                         <input type="text" name="tanggal_lahir" class="form-control" id="tanggal_lahir"
-                            placeholder="Masukkan Tanggal Lahir Anda"
+                            placeholder="Tanggal Lahir"
                             value="{{ \Carbon\Carbon::parse($data->tanggal_lahir)->translatedFormat('d F Y') }}" readonly />
-                        <label for="tanggal_lahir">Tanggal Lahir Anda</label>
+                        <label for="tanggal_lahir">Tanggal Lahir</label>
                     </div>
                     @if ($data->baptis)
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                             <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
-                                placeholder="Masukkan Nomor Baptis Anda" value="{{ $data->baptis->nomor_baptis }}"
-                                readonly />
-                            <label for="nomor_baptis">Nomor Baptis Anda</label>
+                                placeholder="Nomor Baptis" value="{{ $data->baptis->nomor_baptis }}" readonly />
+                            <label for="nomor_baptis">Nomor Baptis</label>
                         </div>
                     @else
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                             <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
                                 placeholder="Nomor Baptis Tidak Ada" readonly />
-                            <label for="nomor_baptis">Nomor Baptis Anda</label>
+                            <label for="nomor_baptis">Nomor Baptis</label>
                         </div>
                     @endif
                 </div>
                 <div class="d-flex">
                     <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                         <input type="text" name="nama_ayah" class="form-control" id="nama_ayah"
-                            placeholder="Masukkan Nama Ayah Anda" value="{{ $data->nama_ayah }}" readonly />
-                        <label for="nama_ayah">Nama Ayah Anda</label>
+                            placeholder="Masukkan Nama Ayah" value="{{ $data->nama_ayah }}" readonly />
+                        <label for="nama_ayah">Nama Ayah</label>
                     </div>
                     <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                         <input type="text" name="nama_ibu" class="form-control" id="nama_ibu"
-                            placeholder="Masukkan Nama Ibu Anda" value="{{ $data->nama_ibu }}" readonly />
-                        <label for="nama_ibu">Nama Ibu Anda</label>
+                            placeholder="Masukkan Nama Ibu" value="{{ $data->nama_ibu }}" readonly />
+                        <label for="nama_ibu">Nama Ibu</label>
                     </div>
                 </div>
                 <div>
@@ -78,8 +82,17 @@
                             <label for="nama_pasangan">Nama lengkap Pasangan <span class="text-danger">*</span></label>
                         </div>
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <select name="jenis_kelamin_pasangan" class="form-select" aria-label="Default select example"
+                                required>
+                                <option selected disabled>Pilih Jenis Kelamin</option>
+                                <option value="Pria">Pria</option>
+                                <option value="Wanita">Wanita</option>
+                            </select>
+                            <label for="jenis_kelamin_pasangan">Jenis Kelamin <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                             <input type="text" name="umur_pasangan" class="form-control" id="umur_pasangan"
-                                placeholder="Masukkan Umur Pasangan" />
+                                placeholder="... Tahun" />
                             <label for="umur_pasangan">Umur Pasangan <span class="text-danger">*</span></label>
                         </div>
                     </div>

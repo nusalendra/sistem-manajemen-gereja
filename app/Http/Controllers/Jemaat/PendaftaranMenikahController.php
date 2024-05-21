@@ -37,6 +37,7 @@ class PendaftaranMenikahController extends Controller
         $pendaftaran = new Menikah();
         $pendaftaran->jemaat_id = $request->jemaat_id;
         $pendaftaran->nama_pasangan = $request->nama_pasangan;
+        $pendaftaran->jenis_kelamin_pasangan = $request->jenis_kelamin_pasangan;
         $pendaftaran->umur_pasangan = $request->umur_pasangan;
         $pendaftaran->tanggal_lahir_pasangan = $request->tanggal_lahir_pasangan;
         $pendaftaran->nomor_baptis_pasangan = $request->nomor_baptis_pasangan;

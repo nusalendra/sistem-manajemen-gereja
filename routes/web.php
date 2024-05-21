@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataJemaatController;
+use App\Http\Controllers\Admin\KelolaDataMenikahController;
 use App\Http\Controllers\Admin\WartaJemaatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -73,6 +74,10 @@ Route::get('/warta-jemaat/{id}', [WartaJemaatController::class, 'show']);
 Route::get('/warta-jemaat/{id}/edit', [WartaJemaatController::class, 'edit']);
 Route::put('/warta-jemaat/{id}', [WartaJemaatController::class, 'update']);
 Route::delete('/warta-jemaat/{id}', [WartaJemaatController::class, 'destroy']);
+
+Route::get('/kelola-data-menikah', [KelolaDataMenikahController::class, 'index'])->name('kelola-data-menikah');
+Route::get('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'show'])->name('kelola-data-menikah.show');
+Route::put('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'update'])->name('kelola-data-menikah.update');
 
 // Jemaat
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
