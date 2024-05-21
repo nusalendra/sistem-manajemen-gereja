@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataJemaatController;
+use App\Http\Controllers\Admin\KelolaDataBaptisController;
 use App\Http\Controllers\Admin\KelolaDataMenikahController;
 use App\Http\Controllers\Admin\WartaJemaatController;
 use Illuminate\Support\Facades\Route;
@@ -79,6 +80,10 @@ Route::delete('/warta-jemaat/{id}', [WartaJemaatController::class, 'destroy']);
 Route::get('/kelola-data-menikah', [KelolaDataMenikahController::class, 'index'])->name('kelola-data-menikah');
 Route::get('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'show'])->name('kelola-data-menikah.show');
 Route::put('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'update'])->name('kelola-data-menikah.update');
+
+Route::get('/kelola-data-baptis', [KelolaDataBaptisController::class, 'index'])->name('kelola-data-baptis');
+Route::get('/kelola-data-baptis/{id}', [KelolaDataBaptisController::class, 'show'])->name('kelola-data-baptis.show');
+Route::put('/kelola-data-baptis/{id}', [KelolaDataBaptisController::class, 'update'])->name('kelola-data-baptis.update');
 
 // Jemaat
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');

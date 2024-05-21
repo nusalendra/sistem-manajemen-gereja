@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <div class="d-flex justify-content-between card-header ">
-            <h5 class="text-dark fw-bold">Data Jemaat Menikah</h5>
+            <h5 class="text-dark fw-bold">Data Pendaftaran Baptis</h5>
             <a href="/data-jemaat/create">
                 <button type="button" class="btn btn-primary">Tambah Jemaat</button>
             </a>
@@ -17,9 +17,9 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-xs font-weight-bolder text-start">No</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Nama Calon Pasangan</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Mengajukan Tanggal Pernikahan</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Status Pengajuan Pernikahan</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Nama Lengkap</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Mengajukan Tanggal Baptis</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Status Baptis</th>
                                 <th class="text-uppercase text-xs font-weight-bolder">Aksi</th>
                             </tr>
                         </thead>
@@ -36,8 +36,7 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">{{ $item->jemaat->nama_lengkap }} &
-                                                    {{ $item->nama_pasangan }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $item->jemaat->nama_lengkap }}</h6>
                                             </div>
                                         </div>
                                     </td>
@@ -45,7 +44,7 @@
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 text-sm">
-                                                    {{ \Carbon\Carbon::parse($item->tanggal_pernikahan)->translatedFormat('d F Y') }}
+                                                    {{ \Carbon\Carbon::parse($item->tanggal_baptis)->translatedFormat('d F Y') }}
                                                 </h6>
                                             </div>
                                         </div>
@@ -53,15 +52,14 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">
-                                                    {{ $item->status_menikah }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $item->status_baptis }}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <a href="/kelola-data-menikah/{{ $item->id }}">
+                                                <a href="/kelola-data-baptis/{{ $item->id }}">
                                                     <button type="button" class="btn btn-info">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-pip me-1"
@@ -71,7 +69,7 @@
                                                             <path
                                                                 d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5z" />
                                                         </svg>
-                                                        Identitas Calon Pasangan
+                                                        Detail Jemaat
                                                     </button>
                                                 </a>
                                             </div>
