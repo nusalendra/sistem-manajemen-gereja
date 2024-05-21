@@ -29,10 +29,7 @@
                                     <div>
                                         <h5 class="mb-2 fw-semibold">Riwayat Menikah</h5>
                                     </div>
-                                    @forelse ($data->menikah as $index => $menikah)
-                                        @if ($data->menikah->count() > 1)
-                                            <h6 class="mt-3 fw-semibold">Pernikahan {{ $index + 1 }}</h6>
-                                        @endif
+                                    @forelse ($menikah as $index => $item)
                                         {{-- Nama Pasangan --}}
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Nama
                                             Pasangan</label>

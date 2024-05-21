@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataJemaatController;
+use App\Http\Controllers\Admin\KelolaDataMenikahController;
 use App\Http\Controllers\Admin\WartaJemaatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -43,6 +44,8 @@ use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\Jemaat\BerandaController;
+use App\Http\Controllers\Jemaat\PendaftaranBaptisController;
+use App\Http\Controllers\Jemaat\PendaftaranMenikahController;
 use App\Http\Controllers\Jemaat\ProfileController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
@@ -73,6 +76,10 @@ Route::get('/warta-jemaat/{id}/edit', [WartaJemaatController::class, 'edit']);
 Route::put('/warta-jemaat/{id}', [WartaJemaatController::class, 'update']);
 Route::delete('/warta-jemaat/{id}', [WartaJemaatController::class, 'destroy']);
 
+Route::get('/kelola-data-menikah', [KelolaDataMenikahController::class, 'index'])->name('kelola-data-menikah');
+Route::get('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'show'])->name('kelola-data-menikah.show');
+Route::put('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'update'])->name('kelola-data-menikah.update');
+
 // Jemaat
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
@@ -80,6 +87,14 @@ Route::get('/profile', [ProfileController::class, 'profilSaya'])->name('profile'
 Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/riwayat', [ProfileController::class, 'riwayat'])->name('riwayat');
+
+Route::get('/pendaftaran-menikah', [PendaftaranMenikahController::class, 'create'])->name('pendaftaran-menikah');
+Route::post('/pendaftaran-menikah', [PendaftaranMenikahController::class, 'store'])->name('pendaftaran-menikah.store');
+Route::post('/cek-status-menikah', [PendaftaranMenikahController::class, 'cekStatusMenikah'])->name('cek-status-menikah');
+
+Route::get('/pendaftaran-baptis', [PendaftaranBaptisController::class, 'create'])->name('pendaftaran-baptis');
+Route::post('/pendaftaran-baptis', [PendaftaranBaptisController::class, 'store'])->name('pendaftaran-baptis.store');
+Route::post('/cek-status-baptis', [PendaftaranBaptisController::class, 'cekStatusBaptis'])->name('cek-status-baptis');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
