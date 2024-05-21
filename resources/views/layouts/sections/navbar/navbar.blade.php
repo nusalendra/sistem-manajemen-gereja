@@ -62,18 +62,47 @@
                                             <a class="nav-link {{ request()->routeIs('beranda') ? 'active text-primary' : 'text-dark' }} fw-semibold"
                                                 href="{{ route('beranda') }}">Beranda</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                href="{{ route('dashboard') }}">Pendaftaran Menikah</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                href="{{ route('dashboard') }}">Pendaftaran Baptis</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                href="{{ route('dashboard') }}">Pendaftaran Sidi</a>
-                                        </li>
+                                        @php
+                                            $jemaat = Auth::check() ? Auth::user()->jemaat : null;
+                                            $dataJemaat =
+                                                $jemaat &&
+                                                $jemaat->nama_lengkap &&
+                                                $jemaat->jenis_kelamin &&
+                                                $jemaat->alamat &&
+                                                $jemaat->tanggal_lahir &&
+                                                $jemaat->umur &&
+                                                $jemaat->nama_ayah &&
+                                                $jemaat->nama_ibu &&
+                                                $jemaat->NIK;
+                                        @endphp
+
+                                        @if ($dataJemaat)
+                                            <li class="nav-item">
+                                                <a class="nav-link {{ request()->routeIs('pendaftaran-menikah') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                    href="{{ route('pendaftaran-menikah') }}">Pendaftaran Menikah</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link {{ request()->routeIs('beranda') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                    href="{{ route('beranda') }}">Pendaftaran Baptis</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link {{ request()->routeIs('beranda') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                    href="{{ route('beranda') }}">Pendaftaran Sidi</a>
+                                            </li>
+                                        @else
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark fw-semibold incomplete-data-link"
+                                                    href="#">Pendaftaran Menikah</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark fw-semibold incomplete-data-link"
+                                                    href="#">Pendaftaran Baptis</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark fw-semibold incomplete-data-link"
+                                                    href="#">Pendaftaran Sidi</a>
+                                            </li>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -103,8 +132,8 @@
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h6 class="mb-0">John Doe</h6>
-                                <small class="text-muted">Admin</small>
+                                <h6 class="mb-0">{{ Auth::user()->username }}</h6>
+                                <small class="text-muted">{{ Auth::user()->role }}</small>
                             </div>
                         </div>
                     </a>
@@ -139,6 +168,23 @@
         <!--/ User -->
     </ul>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.incomplete-data-link').forEach(function(element) {
+            element.addEventListener('click', function(event) {
+                event.preventDefault();
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Identitas Belum Lengkap',
+                    text: 'Silakan lengkapi identitas anda terlebih dahulu.',
+                    footer: '<a href="{{ route('profile') }}">Klik untuk menuju halaman profile</a>'
+                });
+            });
+        });
+    });
+</script>
 
 @if (!isset($navbarDetached))
     </div>

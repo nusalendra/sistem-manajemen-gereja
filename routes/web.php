@@ -43,6 +43,7 @@ use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\Jemaat\BerandaController;
+use App\Http\Controllers\Jemaat\PendaftaranMenikahController;
 use App\Http\Controllers\Jemaat\ProfileController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
@@ -80,6 +81,10 @@ Route::get('/profile', [ProfileController::class, 'profilSaya'])->name('profile'
 Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/riwayat', [ProfileController::class, 'riwayat'])->name('riwayat');
+
+Route::get('/pendaftaran-menikah', [PendaftaranMenikahController::class, 'index'])->name('pendaftaran-menikah');
+Route::post('/pendaftaran-menikah', [PendaftaranMenikahController::class, 'store'])->name('pendaftaran-menikah,store');
+Route::post('/cek-status-menikah', [PendaftaranMenikahController::class, 'cekStatusMenikah'])->name('cek-status-menikah');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Jemaat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jemaat;
+use App\Models\Menikah;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,14 +19,15 @@ class ProfileController extends Controller
         $user = Auth::user();
         $data = Jemaat::where('user_id', $user->id)->first();
 
-        return view('content.pages.jemaat.beranda.profile.profil-saya', compact('data', 'user'));
+        return view('content.pages.jemaat.profile.profil-saya', compact('data', 'user'));
     }
 
     public function riwayat() {
         $user = Auth::user();
         $data = Jemaat::with('menikah')->where('user_id', $user->id)->first();
+        $menikah = Menikah::where('jemaat_id', $data->id)->where('status_menikah', '=', 'Sudah Menikah')->get();
 
-        return view('content.pages.jemaat.beranda.profile.riwayat', compact('data'));
+        return view('content.pages.jemaat.profile.riwayat', compact('data', 'menikah'));
     }
 
     /**
