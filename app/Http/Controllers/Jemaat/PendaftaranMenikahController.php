@@ -15,10 +15,7 @@ class PendaftaranMenikahController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $data = Jemaat::where('user_id', $user->id)->first();
-
-        return view('content.pages.jemaat.pendaftaran-menikah.create', compact('data'));
+        
     }
 
     /**
@@ -26,7 +23,10 @@ class PendaftaranMenikahController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $data = Jemaat::where('user_id', $user->id)->first();
+
+        return view('content.pages.jemaat.pendaftaran-menikah.create', compact('data'));
     }
 
     /**
@@ -63,9 +63,6 @@ class PendaftaranMenikahController extends Controller
         } else {
             return response()->json(['status' => 'Cerai']);
         }
-        // elseif($menikah && $menikah->status_menikah == 'Menunggu Konfirmasi') {
-        //     return response()->json(['status' => 'Menunggu Konfirmasi']); 
-        // }
     }
 
     /**

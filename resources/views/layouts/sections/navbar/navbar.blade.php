@@ -82,8 +82,8 @@
                                                     href="{{ route('pendaftaran-menikah') }}">Pendaftaran Menikah</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link {{ request()->routeIs('beranda') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                    href="{{ route('beranda') }}">Pendaftaran Baptis</a>
+                                                <a class="nav-link {{ request()->routeIs('pendaftaran-baptis') ? 'active text-primary' : 'text-dark' }} fw-semibold"
+                                                    href="{{ route('pendaftaran-baptis') }}">Pendaftaran Baptis</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link {{ request()->routeIs('beranda') ? 'active text-primary' : 'text-dark' }} fw-semibold"
