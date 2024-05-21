@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataJemaatController;
+use App\Http\Controllers\Admin\KelolaDataBaptisController;
 use App\Http\Controllers\Admin\KelolaDataMenikahController;
 use App\Http\Controllers\Admin\WartaJemaatController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,7 @@ use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\Jemaat\BerandaController;
 use App\Http\Controllers\Jemaat\PendaftaranBaptisController;
 use App\Http\Controllers\Jemaat\PendaftaranMenikahController;
+use App\Http\Controllers\Jemaat\PendaftaranSidiController;
 use App\Http\Controllers\Jemaat\ProfileController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
@@ -80,6 +82,10 @@ Route::get('/kelola-data-menikah', [KelolaDataMenikahController::class, 'index']
 Route::get('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'show'])->name('kelola-data-menikah.show');
 Route::put('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'update'])->name('kelola-data-menikah.update');
 
+Route::get('/kelola-data-baptis', [KelolaDataBaptisController::class, 'index'])->name('kelola-data-baptis');
+Route::get('/kelola-data-baptis/{id}', [KelolaDataBaptisController::class, 'show'])->name('kelola-data-baptis.show');
+Route::put('/kelola-data-baptis/{id}', [KelolaDataBaptisController::class, 'update'])->name('kelola-data-baptis.update');
+
 // Jemaat
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
@@ -95,6 +101,10 @@ Route::post('/cek-status-menikah', [PendaftaranMenikahController::class, 'cekSta
 Route::get('/pendaftaran-baptis', [PendaftaranBaptisController::class, 'create'])->name('pendaftaran-baptis');
 Route::post('/pendaftaran-baptis', [PendaftaranBaptisController::class, 'store'])->name('pendaftaran-baptis.store');
 Route::post('/cek-status-baptis', [PendaftaranBaptisController::class, 'cekStatusBaptis'])->name('cek-status-baptis');
+
+Route::get('/pendaftaran-sidi', [PendaftaranSidiController::class, 'create'])->name('pendaftaran-sidi');
+Route::post('/pendaftaran-sidi', [PendaftaranSidiController::class, 'store'])->name('pendaftaran-sidi.store');
+Route::post('/cek-status-sidi', [PendaftaranSidiController::class, 'cekStatusSidi'])->name('cek-status-sidi');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');

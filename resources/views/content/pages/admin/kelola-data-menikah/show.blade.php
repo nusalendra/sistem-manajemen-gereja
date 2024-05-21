@@ -153,7 +153,7 @@
                             @method('put')
                             <div class="d-flex py-1 justify-content-center">
                                 <div class="me-2 d-flex flex-column justify-content-center">
-                                    <button type="submit" class="btn btn-info" name="action"
+                                    <button type="submit" class="btn btn-primary" name="action"
                                         value="konfirmasi_pengajuan_menikah">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-check2-circle me-1" viewBox="0 0 16 16">
