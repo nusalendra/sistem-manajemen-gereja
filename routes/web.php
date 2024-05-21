@@ -47,6 +47,7 @@ use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\Jemaat\BerandaController;
 use App\Http\Controllers\Jemaat\PendaftaranBaptisController;
 use App\Http\Controllers\Jemaat\PendaftaranMenikahController;
+use App\Http\Controllers\Jemaat\PendaftaranSidiController;
 use App\Http\Controllers\Jemaat\ProfileController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
@@ -100,6 +101,10 @@ Route::post('/cek-status-menikah', [PendaftaranMenikahController::class, 'cekSta
 Route::get('/pendaftaran-baptis', [PendaftaranBaptisController::class, 'create'])->name('pendaftaran-baptis');
 Route::post('/pendaftaran-baptis', [PendaftaranBaptisController::class, 'store'])->name('pendaftaran-baptis.store');
 Route::post('/cek-status-baptis', [PendaftaranBaptisController::class, 'cekStatusBaptis'])->name('cek-status-baptis');
+
+Route::get('/pendaftaran-sidi', [PendaftaranSidiController::class, 'create'])->name('pendaftaran-sidi');
+Route::post('/pendaftaran-sidi', [PendaftaranSidiController::class, 'store'])->name('pendaftaran-sidi.store');
+Route::post('/cek-status-sidi', [PendaftaranSidiController::class, 'cekStatusSidi'])->name('cek-status-sidi');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
