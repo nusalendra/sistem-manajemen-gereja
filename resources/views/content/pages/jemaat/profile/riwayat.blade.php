@@ -29,7 +29,7 @@
                                     <div>
                                         <h5 class="mb-2 fw-semibold">Riwayat Menikah</h5>
                                     </div>
-                                    @forelse ($menikah as $index => $item)
+                                    @if ($menikah)
                                         {{-- Nama Pasangan --}}
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Nama
                                             Pasangan</label>
@@ -79,15 +79,15 @@
                                             <label class="col-sm-2 col-form-label fw-bold text-dark"
                                                 for="basic-default-name">{{ $menikah->nama_ibu_pasangan }}</label>
                                         </div>
-                                    @empty
+                                    @else
                                         <p class="col-sm-10">Tidak ada data riwayat menikah</p>
-                                    @endforelse
+                                    @endif
                                 </div>
                                 <div class="row mt-2 mb-3">
                                     <div>
                                         <h5 class="mb-2 fw-semibold">Riwayat Baptis</h5>
                                     </div>
-                                    @if ($data->baptis)
+                                    @if ($data->baptis && $data->baptis->status_baptis == 'Sudah Baptis')
                                         {{-- Tanggal Baptis --}}
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Tanggal
                                             Baptis</label>
@@ -117,7 +117,7 @@
                                     <div>
                                         <h5 class="mb-2 fw-semibold">Riwayat Sidi</h5>
                                     </div>
-                                    @if ($data->sidi)
+                                    @if ($data->sidi && $data->sidi->status_sidi == 'Sudah Sidi')
                                         {{-- Gereja Yang Membaptis --}}
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Gereja Yang
                                             Membaptis</label>

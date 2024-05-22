@@ -3,18 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Menikah;
+use App\Models\Sidi;
 use Illuminate\Http\Request;
 
-class KelolaDataMenikahController extends Controller
+class KelolaDataSidiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Menikah::all();
-        return view('content.pages.admin.kelola-data-menikah.index', compact('data'));
+        $data = Sidi::all();
+        
+        return view('content.pages.admin.kelola-data-sidi.index', compact('data'));
     }
 
     /**
@@ -38,9 +39,9 @@ class KelolaDataMenikahController extends Controller
      */
     public function show(string $id)
     {
-        $data = Menikah::find($id);
-        // dd($data);
-        return view('content.pages.admin.kelola-data-menikah.show', compact('data'));
+        $data = Sidi::find($id);
+        
+        return view('content.pages.admin.kelola-data-sidi.show', compact('data'));
     }
 
     /**
@@ -56,19 +57,19 @@ class KelolaDataMenikahController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $menikah = Menikah::find($id);
-
-        if ($request->action == 'konfirmasi_pengajuan_menikah') {
-            $menikah->status_menikah = 'Dikonfirmasi';
-        } elseif ($request->action == 'tolak_pengajuan_menikah') {
-            $menikah->status_menikah = 'Pendaftaran Menikah Ditolak';
+        $sidi = Sidi::find($id);
+        
+        if ($request->action == 'konfirmasi_sidi') {
+            $sidi->status_sidi = 'Dikonfirmasi';
+        } elseif ($request->action == 'tolak_sidi') {
+            $sidi->status_sidi = 'Pendaftaran Sidi Ditolak';
         } elseif ($request->action == 'dikonfirmasi') {
-            $menikah->status_menikah = 'Sudah Menikah';
-        } 
+            $sidi->status_sidi = 'Sudah Sidi';
+        }
 
-        $menikah->save();
+        $sidi->save();
 
-        return redirect('/kelola-data-menikah');
+        return redirect('/kelola-data-sidi');
     }
 
     /**
