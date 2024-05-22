@@ -52,9 +52,10 @@ use App\Http\Controllers\Jemaat\PendaftaranSidiController;
 use App\Http\Controllers\Jemaat\ProfileController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
-// authentication
-Route::get('/', [LoginBasic::class, 'index'])->name('auth-login-basic');
-Route::post('/login', [LoginBasic::class, 'store']);
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/', [LoginBasic::class, 'index'])->name('auth-login-basic');
+    Route::post('/login', [LoginBasic::class, 'store']);
+});
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => 'role:Admin'], function () {
