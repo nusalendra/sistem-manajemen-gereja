@@ -25,7 +25,7 @@ class ProfileController extends Controller
     public function riwayat() {
         $user = Auth::user();
         $data = Jemaat::with('menikah')->where('user_id', $user->id)->first();
-        $menikah = Menikah::where('jemaat_id', $data->id)->where('status_menikah', '=', 'Sudah Menikah')->get();
+        $menikah = Menikah::where('jemaat_id', $data->id)->where('status_menikah', '=', 'Sudah Menikah')->first();
 
         return view('content.pages.jemaat.profile.riwayat', compact('data', 'menikah'));
     }
