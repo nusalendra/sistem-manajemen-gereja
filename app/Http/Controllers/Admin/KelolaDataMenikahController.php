@@ -13,7 +13,7 @@ class KelolaDataMenikahController extends Controller
      */
     public function index()
     {
-        $data = Menikah::where('status_menikah', '=', 'Menunggu Konfirmasi')->get();
+        $data = Menikah::all();
         return view('content.pages.admin.kelola-data-menikah.index', compact('data'));
     }
 
@@ -59,10 +59,12 @@ class KelolaDataMenikahController extends Controller
         $menikah = Menikah::find($id);
 
         if ($request->action == 'konfirmasi_pengajuan_menikah') {
-            $menikah->status_menikah = 'Sudah Menikah';
+            $menikah->status_menikah = 'Dikonfirmasi';
         } elseif ($request->action == 'tolak_pengajuan_menikah') {
             $menikah->status_menikah = 'Pendaftaran Menikah Ditolak';
-        }
+        } elseif ($request->action == 'dikonfirmasi') {
+            $menikah->status_menikah = 'Sudah Menikah';
+        } 
 
         $menikah->save();
 
