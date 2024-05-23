@@ -22,7 +22,7 @@ return new class extends Migration {
       $table->string('status_jemaat');
       $table->string('alamat')->nullable();
       $table->date('tanggal_lahir')->nullable();
-      $table->string('umur')->nullable();
+      $table->integer('umur')->nullable();
       $table->string('nama_ayah')->nullable();
       $table->string('nama_ibu')->nullable();
       $table->string('NIK')->nullable();

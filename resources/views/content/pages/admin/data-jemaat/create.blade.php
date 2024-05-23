@@ -51,7 +51,7 @@
                                 <label for="tanggal_lahir">Tanggal Lahir <span class="text-danger">*</span></label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="umur" class="form-control" id="umur"
+                                <input type="number" name="umur" class="form-control" id="umur"
                                     placeholder="Masukkan Umur" />
                                 <label for="umur">Umur <span class="text-danger">*</span></label>
                             </div>
@@ -92,7 +92,17 @@
                                 <label for="nama_pasangan">Nama lengkap Pasangan</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="umur_pasangan" class="form-control" id="umur_pasangan"
+                                <select name="jenis_kelamin_pasangan" class="form-select"
+                                    aria-label="Default select example" required>
+                                    <option selected disabled>Pilih Jenis Kelamin</option>
+                                    <option value="Pria">Pria</option>
+                                    <option value="Wanita">Wanita</option>
+                                </select>
+                                <label for="jenis_kelamin_pasangan">Jenis Kelamin <span
+                                        class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="number" name="umur_pasangan" class="form-control" id="umur_pasangan"
                                     placeholder="Masukkan Umur Pasangan" />
                                 <label for="umur_pasangan">Umur Pasangan</label>
                             </div>

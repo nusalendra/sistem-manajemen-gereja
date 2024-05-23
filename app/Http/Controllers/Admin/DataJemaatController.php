@@ -59,6 +59,7 @@ class DataJemaatController extends Controller
                 $menikah = new Menikah();
                 $menikah->jemaat_id = $jemaat->id;
                 $menikah->nama_pasangan = $request->nama_pasangan;
+                $menikah->jenis_kelamin_pasangan = $request->jenis_kelamin_pasangan;
                 $menikah->nama_ayah_pasangan = $request->nama_ayah_pasangan;
                 $menikah->nama_ibu_pasangan = $request->nama_ibu_pasangan;
                 $menikah->umur_pasangan = $request->umur_pasangan;
@@ -170,6 +171,7 @@ class DataJemaatController extends Controller
                     [
                         'jemaat_id' => $jemaat->id,
                         'nama_pasangan' => $menikahData['nama_pasangan'],
+                        'jenis_kelamin_pasangan' => $menikahData['jenis_kelamin_pasangan'],
                         'umur_pasangan' => $menikahData['umur_pasangan'],
                         'nama_ayah_pasangan' => $menikahData['nama_ayah_pasangan'],
                         'nama_ibu_pasangan' => $menikahData['nama_ibu_pasangan'],
