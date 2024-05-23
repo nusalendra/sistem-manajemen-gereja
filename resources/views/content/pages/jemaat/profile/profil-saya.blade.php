@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating form-floating-outline">
-                                    <input class="form-control" type="text" id="umur" name="umur"
+                                    <input class="form-control" type="number" id="umur" name="umur"
                                         value="{{ $data->umur }}" autofocus placeholder="... Tahun" />
                                     <label for="umur">Umur</label>
                                 </div>
