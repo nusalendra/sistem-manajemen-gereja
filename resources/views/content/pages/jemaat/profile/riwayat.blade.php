@@ -49,7 +49,7 @@
                                             Pasangan</label>
                                         <div class="col-sm-10">
                                             <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                                for="basic-default-name">{{ $menikah->umur_pasangan }}</label>
+                                                for="basic-default-name">{{ $menikah->umur_pasangan }} Tahun</label>
                                         </div>
                                         {{-- Nomor Baptis Pasangan --}}
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Nomor Baptis
