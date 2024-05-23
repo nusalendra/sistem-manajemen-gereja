@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('jenis_kelamin_pasangan');
             $table->string('nama_ayah_pasangan');
             $table->string('nama_ibu_pasangan');
-            $table->string('umur_pasangan');
+            $table->integer('umur_pasangan');
             $table->date('tanggal_lahir_pasangan');
             $table->string('nomor_baptis_pasangan');
             $table->date('tanggal_pernikahan');

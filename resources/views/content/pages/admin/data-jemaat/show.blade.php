@@ -50,7 +50,7 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Umur</label>
                             <div class="col-sm-10">
                                 <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                    for="basic-default-name">{{ $data->umur }}</label>
+                                    for="basic-default-name">{{ $data->umur }} Tahun</label>
                             </div>
                             {{-- Alamat --}}
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Alamat</label>
@@ -101,7 +101,7 @@
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Umur Pasangan</label>
                                 <div class="col-sm-10">
                                     <label class="col-sm-2 col-form-label fw-bold text-dark"
-                                        for="basic-default-name">{{ $item->umur_pasangan }}</label>
+                                        for="basic-default-name">{{ $item->umur_pasangan }} Tahun</label>
                                 </div>
                                 {{-- Nomor Baptis Pasangan --}}
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nomor Baptis

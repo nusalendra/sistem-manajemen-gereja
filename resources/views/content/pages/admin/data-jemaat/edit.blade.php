@@ -39,7 +39,7 @@
                             <label for="tanggal_lahir">Tanggal Lahir</label>
                         </div>
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                            <input type="text" name="umur" class="form-control" id="umur"
+                            <input type="number" name="umur" class="form-control" id="umur"
                                 placeholder="Masukkan Umur" value="{{ $data->umur }}" />
                             <label for="umur">Umur</label>
                         </div>
@@ -96,7 +96,19 @@
                                 <label for="nama_pasangan_{{ $index }}">Nama lengkap Pasangan</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="menikah[{{ $index }}][umur_pasangan]"
+                                <select name="menikah[{{ $index }}][jenis_kelamin_pasangan]" class="form-select"
+                                    aria-label="Default select example" required>
+                                    <option selected disabled>Pilih Jenis Kelamin</option>
+                                    <option value="Pria"
+                                        {{ $item->jenis_kelamin_pasangan === 'Pria' ? 'selected' : '' }}>Pria</option>
+                                    <option value="Wanita"
+                                        {{ $item->jenis_kelamin_pasangan === 'Wanita' ? 'selected' : '' }}>Wanita</option>
+                                </select>
+                                <label for="jenis_kelamin_pasangan_{{ $index }}">Jenis Kelamin <span
+                                        class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="number" name="menikah[{{ $index }}][umur_pasangan]"
                                     class="form-control" id="umur_pasangan_{{ $index }}"
                                     placeholder="Masukkan Umur Pasangan" value="{{ $item->umur_pasangan }}" />
                                 <label for="umur_pasangan_{{ $index }}">Umur Pasangan</label>
@@ -161,7 +173,17 @@
                                 <label for="nama_pasangan_0">Nama lengkap Pasangan</label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="menikah[0][umur_pasangan]" class="form-control"
+                                <select name="menikah[0][jenis_kelamin_pasangan]" class="form-select"
+                                    aria-label="Default select example" required>
+                                    <option selected disabled>Pilih Jenis Kelamin</option>
+                                    <option value="Pria">Pria</option>
+                                    <option value="Wanita">Wanita</option>
+                                </select>
+                                <label for="jenis_kelamin_pasangan">Jenis Kelamin <span
+                                        class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="number" name="menikah[0][umur_pasangan]" class="form-control"
                                     id="umur_pasangan_0" placeholder="Masukkan Umur Pasangan" />
                                 <label for="umur_pasangan_0">Umur Pasangan</label>
                             </div>
