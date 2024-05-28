@@ -1,18 +1,14 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
     <!-- ! Hide app brand if navbar-full -->
-    {{-- <div class="app-brand demo">
+    <div class="app-brand demo mt-3 ms-5">
         <a href="{{ url('/') }}" class="app-brand-link">
-            <span class="app-brand-logo demo me-1">
-                @include('_partials.macros', ['height' => 20])
+            <span class="app-brand-logo demo ms-4">
+                <img src="/logo-transparan.png" alt="" width="67" height=67">
             </span>
-            <span class="app-brand-text demo menu-text fw-semibold ms-2">{{ config('variables.templateName') }}</span>
+            {{-- <span class="app-brand-text demo menu-text fw-semibold ms-2">HKBP</span> --}}
         </a>
-
-        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="mdi menu-toggle-icon d-xl-block align-middle mdi-20px"></i>
-        </a>
-    </div> --}}
+    </div>
 
     <div class="menu-inner-shadow"></div>
 
@@ -22,7 +18,7 @@
 
             {{-- menu headers --}}
             @if (isset($menu->menuHeader))
-                <li class="menu-header fw-medium mt-5">
+                <li class="menu-header fw-medium mt-3">
                     <span class="menu-header-text">{{ __($menu->menuHeader) }}</span>
                 </li>
             @else

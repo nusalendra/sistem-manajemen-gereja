@@ -22,12 +22,6 @@
       "slug": "warta-jemaat"
     },
     {
-      "url": "/kelola-data-menikah",
-      "name": "Kelola Data Menikah",
-      "icon": "menu-icon tf-icons mdi mdi-account-multiple",
-      "slug": "kelola-data-menikah"
-    },
-    {
       "url": "/kelola-data-baptis",
       "name": "Kelola Data Baptis",
       "icon": "menu-icon tf-icons mdi mdi-view-grid-outline",
@@ -38,6 +32,12 @@
       "name": "Kelola Data Sidi",
       "icon": "menu-icon tf-icons mdi mdi-flip-to-front",
       "slug": "kelola-data-sidi"
+    },
+    {
+      "url": "/kelola-data-menikah",
+      "name": "Kelola Data Menikah",
+      "icon": "menu-icon tf-icons mdi mdi-account-multiple",
+      "slug": "kelola-data-menikah"
     },
     {
       "menuHeader": "Apps & Pages"

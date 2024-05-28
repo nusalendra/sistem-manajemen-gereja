@@ -156,7 +156,6 @@ class DataJemaatController extends Controller
     // Handle Update Data User
     $user = User::where('id', $jemaat->user_id)->first();
     if($request->password !== null) {
-        $user->username = $request->username;
         $user->password = bcrypt($request->password);
         $user->save();
     }
@@ -214,6 +213,7 @@ class DataJemaatController extends Controller
     
         if ($baptis) {
             $baptis->status_baptis = 'Sudah Baptis';
+            $baptis->save();
         }
     }
 
@@ -232,6 +232,7 @@ class DataJemaatController extends Controller
     
         if ($sidi) {
             $sidi->status_sidi = 'Sudah Sidi';
+            $sidi->save();
         }
     }
 

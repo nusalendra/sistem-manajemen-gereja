@@ -81,6 +81,45 @@
                             </div>
                         </div>
 
+                        {{-- Data Baptis --}}
+                        <div>
+                            <h5 class="mb-4 fw-semibold">Data Baptis</h5>
+                        </div>
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="file" name="sertifikat" class="form-control" id="sertifikat"
+                                    accept=".pdf, .jpg, .png" />
+                                <label for="sertifikat">Upload Sertifikat</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="date" name="tanggal_baptis" class="form-control" id="tanggal_baptis"
+                                    placeholder="Masukkan Tanggal Baptis" />
+                                <label for="tanggal_baptis">Tanggal Baptis</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
+                                    placeholder="Masukkan Nomor Baptis (Opsional)" />
+                                <label for="nomor_baptis">Nomor Baptis</label>
+                            </div>
+                        </div>
+
+                        {{-- Data Sidi --}}
+                        <div>
+                            <h5 class="mb-4 fw-semibold">Data Sidi</h5>
+                        </div>
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="gereja_yang_membaptis" class="form-control"
+                                    id="gereja_yang_membaptis" placeholder="Masukkan Nama Gereja" />
+                                <label for="gereja_yang_membaptis">Gereja Yang Membaptis</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="date" name="tanggal_sidi" class="form-control" id="tanggal_sidi"
+                                    placeholder="Masukkan Tanggal Sidi" />
+                                <label for="tanggal_sidi">Tanggal Sidi</label>
+                            </div>
+                        </div>
+
                         {{-- Data Menikah --}}
                         <div>
                             <h5 class="mb-4 fw-semibold">Data Menikah</h5>
@@ -136,45 +175,6 @@
                                 <input type="date" name="tanggal_pernikahan" class="form-control"
                                     id="tanggal_pernikahan" placeholder="Masukkan Tanggal Pernikahan" />
                                 <label for="tanggal_pernikahan">Tanggal Pernikahan</label>
-                            </div>
-                        </div>
-
-                        {{-- Data Baptis --}}
-                        <div>
-                            <h5 class="mb-4 fw-semibold">Data Baptis</h5>
-                        </div>
-                        <div class="d-flex">
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="file" name="sertifikat" class="form-control" id="sertifikat"
-                                    accept=".pdf, .jpg, .png" />
-                                <label for="sertifikat">Upload Sertifikat</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="date" name="tanggal_baptis" class="form-control" id="tanggal_baptis"
-                                    placeholder="Masukkan Tanggal Baptis" />
-                                <label for="tanggal_baptis">Tanggal Baptis</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
-                                    placeholder="Masukkan Nomor Baptis (Opsional)" />
-                                <label for="nomor_baptis">Nomor Baptis</label>
-                            </div>
-                        </div>
-
-                        {{-- Data Sidi --}}
-                        <div>
-                            <h5 class="mb-4 fw-semibold">Data Sidi</h5>
-                        </div>
-                        <div class="d-flex">
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="gereja_yang_membaptis" class="form-control"
-                                    id="gereja_yang_membaptis" placeholder="Masukkan Nama Gereja" />
-                                <label for="gereja_yang_membaptis">Gereja Yang Membaptis</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="date" name="tanggal_sidi" class="form-control" id="tanggal_sidi"
-                                    placeholder="Masukkan Tanggal Sidi" />
-                                <label for="tanggal_sidi">Tanggal Sidi</label>
                             </div>
                         </div>
                     </div>
