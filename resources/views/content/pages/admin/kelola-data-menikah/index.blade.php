@@ -6,9 +6,6 @@
     <div class="card">
         <div class="d-flex justify-content-between card-header ">
             <h5 class="text-dark fw-bold">Data Jemaat Menikah</h5>
-            <a href="/data-jemaat/create">
-                <button type="button" class="btn btn-primary">Tambah Jemaat</button>
-            </a>
         </div>
         <div class="card ps-3 pe-3 pb-3">
             <div class="card-body px-0 pt-0 pb-2">
