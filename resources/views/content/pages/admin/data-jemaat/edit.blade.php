@@ -82,6 +82,82 @@
                         </div>
                     </div>
 
+                    {{-- Data Baptis --}}
+                    <div>
+                        <h5 class="mb-4 fw-semibold">Data Baptis</h5>
+                    </div>
+                    @if ($data->baptis)
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="file" name="sertifikat" class="form-control" id="sertifikat"
+                                    accept=".pdf, .jpg, .png" />
+                                <label for="sertifikat">Upload Ulang Sertifikat</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="date" name="tanggal_baptis" class="form-control" id="tanggal_baptis"
+                                    placeholder="Masukkan Tanggal Baptis" value="{{ $data->baptis->tanggal_baptis }}" />
+                                <label for="tanggal_baptis">Tanggal Baptis</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
+                                    placeholder="Masukkan Nomor Baptis (Opsional)"
+                                    value="{{ $data->baptis->nomor_baptis }}" />
+                                <label for="nomor_baptis">Nomor Baptis</label>
+                            </div>
+                        </div>
+                    @else
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="file" name="sertifikat" class="form-control" id="sertifikat"
+                                    accept=".pdf, .jpg, .png" />
+                                <label for="sertifikat">Upload Ulang Sertifikat</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="date" name="tanggal_baptis" class="form-control" id="tanggal_baptis"
+                                    placeholder="Masukkan Tanggal Baptis" />
+                                <label for="tanggal_baptis">Tanggal Baptis</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
+                                    placeholder="Masukkan Nomor Baptis (Opsional)" />
+                                <label for="nomor_baptis">Nomor Baptis</label>
+                            </div>
+                        </div>
+                    @endif
+
+                    {{-- Data Sidi --}}
+                    <div>
+                        <h5 class="mb-4 fw-semibold">Data Sidi</h5>
+                    </div>
+                    @if ($data->sidi)
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="gereja_yang_membaptis" class="form-control"
+                                    id="gereja_yang_membaptis" placeholder="Masukkan Nama Gereja"
+                                    value="{{ $data->sidi->gereja_yang_membaptis }}" />
+                                <label for="gereja_yang_membaptis">Gereja Yang Membaptis</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="date" name="tanggal_sidi" class="form-control" id="tanggal_sidi"
+                                    placeholder="Masukkan Tanggal Sidi" value="{{ $data->sidi->tanggal_sidi }}" />
+                                <label for="tanggal_sidi">Tanggal Sidi</label>
+                            </div>
+                        </div>
+                    @else
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="gereja_yang_membaptis" class="form-control"
+                                    id="gereja_yang_membaptis" placeholder="Masukkan Nama Gereja" />
+                                <label for="gereja_yang_membaptis">Gereja Yang Membaptis</label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="date" name="tanggal_sidi" class="form-control" id="tanggal_sidi"
+                                    placeholder="Masukkan Tanggal Sidi" />
+                                <label for="tanggal_sidi">Tanggal Sidi</label>
+                            </div>
+                        </div>
+                    @endif
+
                     {{-- Data Menikah --}}
                     <div>
                         <h5 class="mb-4 fw-semibold">Data Menikah</h5>
@@ -221,89 +297,12 @@
                         </div>
                     @endforelse
 
-
-                    {{-- Data Baptis --}}
-                    <div>
-                        <h5 class="mb-4 fw-semibold">Data Baptis</h5>
-                    </div>
-                    @if ($data->baptis)
-                        <div class="d-flex">
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="file" name="sertifikat" class="form-control" id="sertifikat"
-                                    accept=".pdf, .jpg, .png" />
-                                <label for="sertifikat">Upload Ulang Sertifikat</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="date" name="tanggal_baptis" class="form-control" id="tanggal_baptis"
-                                    placeholder="Masukkan Tanggal Baptis" value="{{ $data->baptis->tanggal_baptis }}" />
-                                <label for="tanggal_baptis">Tanggal Baptis</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
-                                    placeholder="Masukkan Nomor Baptis (Opsional)"
-                                    value="{{ $data->baptis->nomor_baptis }}" />
-                                <label for="nomor_baptis">Nomor Baptis</label>
-                            </div>
-                        </div>
-                    @else
-                        <div class="d-flex">
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="file" name="sertifikat" class="form-control" id="sertifikat"
-                                    accept=".pdf, .jpg, .png" />
-                                <label for="sertifikat">Upload Ulang Sertifikat</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="date" name="tanggal_baptis" class="form-control" id="tanggal_baptis"
-                                    placeholder="Masukkan Tanggal Baptis" />
-                                <label for="tanggal_baptis">Tanggal Baptis</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="nomor_baptis" class="form-control" id="nomor_baptis"
-                                    placeholder="Masukkan Nomor Baptis (Opsional)" />
-                                <label for="nomor_baptis">Nomor Baptis</label>
-                            </div>
-                        </div>
-                    @endif
-
-                    {{-- Data Sidi --}}
-                    <div>
-                        <h5 class="mb-4 fw-semibold">Data Sidi</h5>
-                    </div>
-                    @if ($data->sidi)
-                        <div class="d-flex">
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="gereja_yang_membaptis" class="form-control"
-                                    id="gereja_yang_membaptis" placeholder="Masukkan Nama Gereja"
-                                    value="{{ $data->sidi->gereja_yang_membaptis }}" />
-                                <label for="gereja_yang_membaptis">Gereja Yang Membaptis</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="date" name="tanggal_sidi" class="form-control" id="tanggal_sidi"
-                                    placeholder="Masukkan Tanggal Sidi" value="{{ $data->sidi->tanggal_sidi }}" />
-                                <label for="tanggal_sidi">Tanggal Sidi</label>
-                            </div>
-                        </div>
-                    @else
-                        <div class="d-flex">
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="gereja_yang_membaptis" class="form-control"
-                                    id="gereja_yang_membaptis" placeholder="Masukkan Nama Gereja" />
-                                <label for="gereja_yang_membaptis">Gereja Yang Membaptis</label>
-                            </div>
-                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="date" name="tanggal_sidi" class="form-control" id="tanggal_sidi"
-                                    placeholder="Masukkan Tanggal Sidi" />
-                                <label for="tanggal_sidi">Tanggal Sidi</label>
-                            </div>
-                        </div>
-                    @endif
-
                     <div>
                         <h5 class="mb-4 fw-semibold">Tambah Akun</h5>
                     </div>
                     <div class="form-floating form-floating-outline mb-4">
                         <input type="text" name="username" class="form-control" id="username"
-                            placeholder="Masukkan Username" value="{{ $data->user->username }}" required />
+                            placeholder="Masukkan Username" value="{{ $data->user->username }}" disabled />
                         <label for="username">Username</label>
                     </div>
                     <div class="form-floating form-floating-outline mb-4">
