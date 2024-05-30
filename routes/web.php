@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DataJemaatController;
 use App\Http\Controllers\Admin\KelolaDataBaptisController;
 use App\Http\Controllers\Admin\KelolaDataMenikahController;
 use App\Http\Controllers\Admin\KelolaDataSidiController;
+use App\Http\Controllers\Admin\PelayananSepekanController;
 use App\Http\Controllers\Admin\WartaJemaatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -75,6 +76,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/warta-jemaat/{id}/edit', [WartaJemaatController::class, 'edit']);
         Route::put('/warta-jemaat/{id}', [WartaJemaatController::class, 'update']);
         Route::delete('/warta-jemaat/{id}', [WartaJemaatController::class, 'destroy']);
+
+        Route::get('/warta-jemaat/pelayanan-sepekan/{id}', [WartaJemaatController::class, 'pelayananSepakanCreate']);
+        Route::post('/warta-jemaat/pelayanan-sepekan', [WartaJemaatController::class, 'pelayananSepakanStore']);
+        Route::delete('/warta-jemaat/pelayanan-sepekan/{id}', [WartaJemaatController::class, 'pelayananSepakanDestroy']);
+
+        Route::get('/warta-jemaat/pengumuman/{id}', [WartaJemaatController::class, 'pengumumanCreate']);
+        Route::post('/warta-jemaat/pengumuman', [WartaJemaatController::class, 'pengumumanStore']);
+        Route::delete('/warta-jemaat/pengumuman/{id}', [WartaJemaatController::class, 'pengumumanDestroy']);
         
         Route::get('/kelola-data-menikah', [KelolaDataMenikahController::class, 'index'])->name('kelola-data-menikah');
         Route::get('/kelola-data-menikah/{id}', [KelolaDataMenikahController::class, 'show'])->name('kelola-data-menikah.show');

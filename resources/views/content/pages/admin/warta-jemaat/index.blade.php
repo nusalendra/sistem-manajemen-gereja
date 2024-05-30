@@ -6,9 +6,44 @@
     <div class="card">
         <div class="d-flex justify-content-between card-header ">
             <h5 class="text-dark fw-bold">Warta Jemaat</h5>
-            <a href="/warta-jemaat/create">
-                <button type="button" class="btn btn-primary">Tambah Warta Jemaat</button>
-            </a>
+            <div class="d-flex">
+                @if ($data && !$data->isEmpty())
+                    @foreach ($data as $item)
+                        <div class="pe-2">
+                            <a href="/warta-jemaat/pelayanan-sepekan/{{ $item->id }}">
+                                <button type="button" class="btn btn-primary">
+                                    Tambah Pelayanan Sepekan
+                                </button>
+                            </a>
+                        </div>
+                        <div class="pe-2">
+                            <a href="/warta-jemaat/pengumuman/{{ $item->id }}">
+                                <button type="button" class="btn btn-primary">
+                                    Tambah Pengumuman
+                                </button>
+                            </a>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="pe-2">
+                        <button type="button" class="btn btn-primary" disabled>
+                            Tambah Pelayanan Sepekan
+                        </button>
+                    </div>
+                    <div class="pe-2">
+                        <button type="button" class="btn btn-primary" disabled>
+                            Tambah Pengumuman
+                        </button>
+                    </div>
+                @endif
+                @if (!$data || $data->isEmpty())
+                    <a href="/warta-jemaat/create">
+                        <button type="button" class="btn btn-primary">Tambah Warta Jemaat</button>
+                    </a>
+                @else
+                    <button type="button" class="btn btn-danger" disabled>Tambah Warta Jemaat</button>
+                @endif
+            </div>
         </div>
         <div class="card ps-3 pe-3 pb-3">
             <div class="card-body px-0 pt-0 pb-2">
@@ -17,10 +52,10 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-xs font-weight-bolder text-start">No</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Hari / Jam</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Tempat</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Tanggal</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Judul</th>
                                 <th class="text-uppercase text-xs font-weight-bolder">Nama Khutbah</th>
-                                <th class="text-uppercase text-xs font-weight-bolder">Liturgos</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Ayat</th>
                                 <th class="text-uppercase text-xs font-weight-bolder">Aksi</th>
                             </tr>
                         </thead>
@@ -37,43 +72,37 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">{{ $item->nama_lengkap }}</h6>
+                                                <h6 class="mb-0 text-sm">
+                                                    {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}
+                                                </h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">{{ $item->jenis_kelamin }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $item->judul }}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">{{ $item->status_jemaat }}</h6>
+                                                <h6 class="mb-0 text-sm">{{ $item->nama_khutbah }}</h6>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <a href="/data-jemaat/{{ $item->id }}">
-                                                    <button type="button" class="btn btn-info">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-pip me-1"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z" />
-                                                            <path
-                                                                d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5z" />
-                                                        </svg>
-                                                        Detail
-                                                    </button>
-                                                </a>
+                                                <h6 class="mb-0 text-sm">{{ $item->ayat }}</h6>
                                             </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
                                             <div class="ms-2 d-flex flex-column justify-content-center">
-                                                <a href="/data-jemaat/{{ $item->id }}/edit">
+                                                <a href="/warta-jemaat/{{ $item->id }}/edit">
                                                     <button type="button" class="btn btn-warning">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor"
@@ -88,7 +117,7 @@
                                                 </a>
                                             </div>
                                             <div class="ms-2 d-flex flex-column justify-content-center">
-                                                <form action="/data-jemaat/{{ $item->id }}" method="POST"
+                                                <form action="/warta-jemaat/{{ $item->id }}" method="POST"
                                                     role="form text-left">
                                                     @csrf
                                                     @method('DELETE')
