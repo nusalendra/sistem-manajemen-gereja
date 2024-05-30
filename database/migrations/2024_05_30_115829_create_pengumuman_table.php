@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('warta_jemaat', function (Blueprint $table) {
+        Schema::create('pengumuman', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('tanggal');
+            $table->foreignId('warta_jemaat_id')->constrained('warta_jemaat')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('judul');
-            $table->string('ayat');
             $table->longText('isi');
-            $table->string('nama_khutbah');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('warta_jemaat');
+        Schema::dropIfExists('pengumuman');
     }
 };

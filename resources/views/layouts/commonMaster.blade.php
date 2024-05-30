@@ -23,11 +23,15 @@
     {{-- data table --}}
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
 
+    {{-- trix editor --}}
+    <link rel="stylesheet" href="{{ asset('/css/trix.css') }}">
+
     <!-- Include Styles -->
     @include('layouts/sections/styles')
 
     <!-- Include Scripts for customizer, helper, analytics, config -->
     @include('layouts/sections/scriptsIncludes')
+
 </head>
 
 <body>
