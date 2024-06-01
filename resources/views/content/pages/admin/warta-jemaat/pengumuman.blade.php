@@ -67,7 +67,7 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="ms-2 d-flex flex-column justify-content-center">
-                                                        <form action="/warta-jemaat/pelayanan-sepekan/{{ $item->id }}"
+                                                        <form action="/warta-jemaat/pengumuman/{{ $item->id }}"
                                                             method="POST" role="form text-left">
                                                             @csrf
                                                             @method('DELETE')
