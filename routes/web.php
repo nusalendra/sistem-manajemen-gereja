@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
         
         Route::get('/riwayat', [ProfileController::class, 'riwayat'])->name('riwayat');
+        Route::post('/unduh-sertifikat-baptis', [ProfileController::class, 'unduhSertifikatBaptis'])->name('unduh-sertifikat-baptis');
         
         Route::get('/pendaftaran-menikah', [PendaftaranMenikahController::class, 'create'])->name('pendaftaran-menikah');
         Route::post('/pendaftaran-menikah', [PendaftaranMenikahController::class, 'store'])->name('pendaftaran-menikah.store');

@@ -8,7 +8,7 @@
 @section('title', 'Beranda')
 
 @section('content')
-    <div class="container ">
+    <div class="container">
         <div class="card mb-4 shadow-sm">
             <div class="d-flex justify-content-between align-items-center mt-3 me-4">
                 <div class="d-flex align-items-center ms-3">
@@ -38,7 +38,6 @@
                 @endif
             </div>
         </div>
-
         @if ($pelayananSepekan->isNotEmpty())
             <div class="card mb-4 shadow-sm">
                 <div class="card-header mt-3">
@@ -101,6 +100,33 @@
                 </div>
             </div>
         @endif
-    </div>
+        <div class="card-body mt-3">
+            <div class="d-flex flex-wrap">
+                {{-- Total Jemaat Pria & Wanita --}}
+                <div class="col-3 mb-4">
+                    <div class="card">
+                        <div class="mt-3 ms-2 me-2">
+                            {!! $totalJemaatPriaWanitaChart->container() !!}
+                        </div>
+                    </div>
+                </div>
 
+                {{-- Total Jemaat Hidup & Meninggal --}}
+                <div class="col-3 ms-4 mb-4">
+                    <div class="card">
+                        <div class="mt-3 ms-2 me-2">
+                            {!! $statusJemaatChart->container() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ $totalJemaatPriaWanitaChart->cdn() }}"></script>
+
+    {{ $totalJemaatPriaWanitaChart->script() }}
+
+    <script src="{{ $statusJemaatChart->cdn() }}"></script>
+
+    {{ $statusJemaatChart->script() }}
 @endsection
