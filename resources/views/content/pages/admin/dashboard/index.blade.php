@@ -89,7 +89,7 @@
         <div class="col-xl-4 col-md-6">
             <div class="card">
                 <div class="mt-3 ms-2 me-2">
-                    {!! $jemaatChart->container() !!}
+                    {!! $totalJemaatPriaWanitaChart->container() !!}
                 </div>
             </div>
         </div>
@@ -166,9 +166,9 @@
             </div>
         </div>
     </div>
-    <script src="{{ $jemaatChart->cdn() }}"></script>
+    <script src="{{ $totalJemaatPriaWanitaChart->cdn() }}"></script>
 
-    {{ $jemaatChart->script() }}
+    {{ $totalJemaatPriaWanitaChart->script() }}
 
     <script src="{{ $statusJemaatChart->cdn() }}"></script>
 

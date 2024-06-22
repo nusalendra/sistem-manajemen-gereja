@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Charts\JemaatChart;
 use App\Charts\PendaftaranMenungguKonfirmasiChart;
 use App\Charts\StatusJemaatChart;
+use App\Charts\TotalJemaatPriaWanitaChart;
 use App\Charts\UmurJemaatChart;
 use App\Http\Controllers\Controller;
 use App\Models\Baptis;
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(JemaatChart $jemaatChart, UmurJemaatChart $umurJemaatChart, StatusJemaatChart $statusJemaatChart)
+    public function index(TotalJemaatPriaWanitaChart $totalJemaatPriaWanitaChart, UmurJemaatChart $umurJemaatChart, StatusJemaatChart $statusJemaatChart)
   {
     $totalJemaat = Jemaat::count();
     $totalMenikah = Menikah::where('status_menikah', 'Sudah Menikah')->count();
@@ -25,6 +26,6 @@ class DashboardController extends Controller
     $pendaftaranBaptis = Baptis::where('status_baptis', 'Menunggu Konfirmasi')->count();
     $pendaftaranSidi = Sidi::where('status_sidi', 'Menunggu Konfirmasi')->count();
     
-    return view('content.pages.admin.dashboard.index', compact('totalJemaat', 'totalMenikah', 'totalBaptis', 'totalSidi', 'pendaftaranMenikah', 'pendaftaranBaptis', 'pendaftaranSidi'), ['jemaatChart' => $jemaatChart->build(), 'umurJemaatChart' => $umurJemaatChart->build(), 'statusJemaatChart' => $statusJemaatChart->build()]);
+    return view('content.pages.admin.dashboard.index', compact('totalJemaat', 'totalMenikah', 'totalBaptis', 'totalSidi', 'pendaftaranMenikah', 'pendaftaranBaptis', 'pendaftaranSidi'), ['totalJemaatPriaWanitaChart' => $totalJemaatPriaWanitaChart->build(), 'umurJemaatChart' => $umurJemaatChart->build(), 'statusJemaatChart' => $statusJemaatChart->build()]);
   }
 }

@@ -16,28 +16,28 @@ class UmurJemaatChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\LineChart
     {
-        $umurJemaat = Jemaat::select('umur')
-                            ->groupBy('umur')
-                            ->orderBy('umur')
-                            ->get()
-                            ->pluck('umur');
-
+        // Mengelompokkan umur jemaat ke dalam rentang tertentu dengan deskripsi
+        $umurRanges = [
+            'Anak-anak (7-15)' => [7, 15],
+            'Remaja (16-22)' => [16, 22],
+            'Dewasa (23-40)' => [23, 40],
+            'Lanjut Usia (> 41)' => [41, 100], // Ubah rentang yang benar untuk 41-lanjut
+        ];
+    
         $jumlahJemaat = [];
-        foreach ($umurJemaat as $umur) {
-            $count = Jemaat::where('umur', $umur)->count();
-            $jumlahJemaat[] = $count;
+        foreach ($umurRanges as $range => $values) {
+            $count = Jemaat::whereBetween('umur', $values)->count();
+            $jumlahJemaat[$range] = $count;
         }
-
-        $labels = $umurJemaat->map(function ($umur) {
-            return $umur . ' Tahun';
-        })->toArray();
-        $data = $jumlahJemaat;
-
+    
+        // Menambahkan deskripsi ke label
+        $labels = array_keys($jumlahJemaat);
+        $data = array_values($jumlahJemaat);
+    
         return $this->chart->lineChart()
             ->setTitle('Jumlah Jemaat berdasarkan Umur')
             ->setSubtitle('Statistik Umur Jemaat')
             ->addData('Jumlah Jemaat', $data)
             ->setXAxis($labels);
     }
-
 }
