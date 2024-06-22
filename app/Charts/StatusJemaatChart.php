@@ -14,17 +14,15 @@ class StatusJemaatChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build(): \ArielMejiaDev\LarapexCharts\PieChart
     {
-        
-    $jemaatHidup = Jemaat::where('status_jemaat', 'Hidup')->count();
-    $jemaatMeninggal = Jemaat::where('status_jemaat', 'Meninggal')->count();
+        $jemaatHidup = Jemaat::where('status_jemaat', 'Hidup')->count();
+        $jemaatMeninggal = Jemaat::where('status_jemaat', 'Meninggal')->count();
 
-    return $this->chart->barChart()
-        ->setTitle('Chart Status Jemaat')
-        ->addData('Hidup', [$jemaatHidup])
-        ->addData('Meninggal', [$jemaatMeninggal])
-        ->setXAxis(['Jemaat'])
-        ->setColors(['#32CD32', '#800080']);
+        return $this->chart->pieChart()
+            ->setTitle('Chart Status Jemaat')
+            ->addData([$jemaatHidup, $jemaatMeninggal])
+            ->setLabels(['Jemaat Hidup', 'Jemaat Meninggal'])
+            ->setColors(['#1E90FF', '#FF69B4']);
     }
 }
