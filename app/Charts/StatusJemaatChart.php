@@ -22,7 +22,7 @@ class StatusJemaatChart
         return $this->chart->pieChart()
             ->setTitle('Chart Status Jemaat')
             ->addData([$jemaatHidup, $jemaatMeninggal])
-            ->setLabels(['Jemaat Hidup', 'Jemaat Meninggal'])
+            ->setLabels(['Hidup', 'Meninggal'])
             ->setColors(['#1E90FF', '#FF69B4']);
     }
 }

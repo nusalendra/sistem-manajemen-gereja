@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Jemaat;
 
 use App\Http\Controllers\Controller;
+use App\Models\Baptis;
 use App\Models\Jemaat;
 use App\Models\Menikah;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 class ProfileController extends Controller
 {
@@ -28,6 +31,20 @@ class ProfileController extends Controller
         $menikah = Menikah::where('jemaat_id', $data->id)->where('status_menikah', '=', 'Sudah Menikah')->first();
 
         return view('content.pages.jemaat.profile.riwayat', compact('data', 'menikah'));
+    }
+
+    public function unduhSertifikatBaptis() {
+        $user = Auth::user();
+        $jemaat = Jemaat::where('user_id', $user->id)->first();
+        $data = Baptis::where('jemaat_id', $jemaat->id)->first();
+
+        if ($data->sertifikat) {
+            $filePath = public_path('/sertifikat' . '/' . $data->sertifikat);
+
+            if (File::exists($filePath)) {
+                return Response::download($filePath);
+            }
+        }
     }
 
     /**
