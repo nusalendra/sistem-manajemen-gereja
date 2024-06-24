@@ -10,7 +10,7 @@ class Baptis extends Model
     use HasFactory;
     protected $table = 'baptis';
     protected $primarykey = 'id';
-    protected $fillable = ['jemaat_id', 'sertifikat', 'tanggal_baptis', 'nomor_baptis', 'status_baptis'];
+    protected $fillable = ['jemaat_id', 'sertifikat', 'tanggal_baptis', 'nomor_baptis', 'nama_pendeta', 'status_baptis'];
 
     public function jemaat() {
         return $this->belongsTo(Jemaat::class);

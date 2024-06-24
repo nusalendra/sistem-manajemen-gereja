@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Data Jemaat')
+@section('title', 'Warta Jemaat')
 
 @section('content')
     <div class="card">

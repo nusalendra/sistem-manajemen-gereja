@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Pendaftaran Menikah')
+@section('title', 'Detail Data Sidi')
 
 @section('content')
 

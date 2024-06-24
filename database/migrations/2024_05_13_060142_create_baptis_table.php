@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('sertifikat')->nullable();
             $table->date('tanggal_baptis')->nullable();
             $table->string('nomor_baptis')->nullable();
+            $table->string('nama_pendeta')->nullable();
             $table->string('status_baptis')->nullable();
             $table->timestamps();
         });
