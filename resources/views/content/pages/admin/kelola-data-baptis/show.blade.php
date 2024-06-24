@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Pendaftaran Menikah')
+@section('title', 'Detail Data Baptis')
 
 @section('content')
 
@@ -143,6 +143,12 @@
                                                     class="text-danger">*</span></label>
                                         </div>
                                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                            <input type="text" name="nama_pendeta" class="form-control"
+                                                id="nama_pendeta" placeholder="Masukkan Nomor Baptis" required />
+                                            <label for="nama_pendeta">Nama Pendeta Yang Membaptis<span
+                                                    class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                             <input type="file" name="sertifikat" class="form-control" id="sertifikat"
                                                 accept=".png, .jpg, .pdf" required />
                                             <label for="sertifikat">Sertifikat <span class="text-danger">*</span></label>
@@ -150,7 +156,6 @@
                                     </div>
                                 </div>
                                 <div class="mt-3">
-
                                     <div class="d-flex py-1 justify-content-center">
                                         <div class="me-2 d-flex flex-column justify-content-center">
                                             <button type="submit" class="btn btn-primary" name="action"

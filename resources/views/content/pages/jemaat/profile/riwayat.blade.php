@@ -102,6 +102,13 @@
                                             <label class="col-sm-2 col-form-label fw-bold text-dark"
                                                 for="basic-default-name">{{ $data->baptis->nomor_baptis }}</label>
                                         </div>
+                                        {{-- Nomor Baptis --}}
+                                        <label class="col-sm-2 col-form-label" for="basic-default-company">Pendeta Yang
+                                            Membaptis</label>
+                                        <div class="col-sm-10">
+                                            <label class="col-sm-2 col-form-label fw-bold text-dark"
+                                                for="basic-default-name">{{ $data->baptis->nama_pendeta }}</label>
+                                        </div>
                                         {{-- Status Baptis --}}
                                         <label class="col-sm-2 col-form-label" for="basic-default-company">Status
                                             Baptis</label>

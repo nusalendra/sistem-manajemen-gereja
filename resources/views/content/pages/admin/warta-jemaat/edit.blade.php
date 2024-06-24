@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', ' Tambah Warta Jemaat')
+@section('title', 'Edit Warta Jemaat')
 
 @section('content')
     <div class="row">

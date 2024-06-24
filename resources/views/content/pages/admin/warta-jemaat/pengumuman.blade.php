@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Tambah Pelayanan Sepekan')
+@section('title', 'Tambah Pengumuman')
 
 @section('content')
     <div class="row">

@@ -71,6 +71,7 @@ class KelolaDataBaptisController extends Controller
                 $baptis->sertifikat = $filename;
             }
             $baptis->nomor_baptis = $request->nomor_baptis;
+            $baptis->nama_pendeta = $request->nama_pendeta;
             $baptis->status_baptis = 'Sudah Baptis';
         }
 
