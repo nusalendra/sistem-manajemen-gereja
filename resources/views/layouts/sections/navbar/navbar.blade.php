@@ -43,73 +43,7 @@
     <!-- Search -->
     <div class="navbar-nav align-items-center">
         <div class="app-brand justify-content-center">
-            @if (Auth::user()->role == 'Admin')
-                {{-- <img src="logo-transparan.png" alt="" width="50"> --}}
-                <h5 class="mt-3 text-dark fw-bold">Gereja Huria Kristen Batak Protestan (HKBP)</h5>
-            @elseif(Auth::user()->role == 'Jemaat')
-                <div class="navbar-nav align-items-center">
-                    <div class="app-brand justify-content-center">
-                        <nav class="navbar navbar-example navbar-expand-lg ">
-                            <div class="container-fluid">
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbar-ex-2" aria-controls="navbar-ex-2" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbar-ex-2">
-                                    <div class="navbar-nav me-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link {{ request()->routeIs('beranda') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                href="{{ route('beranda') }}">Beranda</a>
-                                        </li>
-                                        @php
-                                            $jemaat = Auth::check() ? Auth::user()->jemaat : null;
-                                            $dataJemaat =
-                                                $jemaat &&
-                                                $jemaat->nama_lengkap &&
-                                                $jemaat->jenis_kelamin &&
-                                                $jemaat->alamat &&
-                                                $jemaat->tanggal_lahir &&
-                                                $jemaat->umur &&
-                                                $jemaat->nama_ayah &&
-                                                $jemaat->nama_ibu &&
-                                                $jemaat->NIK;
-                                        @endphp
-
-                                        @if ($dataJemaat)
-                                            <li class="nav-item">
-                                                <a class="nav-link {{ request()->routeIs('pendaftaran-menikah') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                    href="{{ route('pendaftaran-menikah') }}">Pendaftaran Menikah</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link {{ request()->routeIs('pendaftaran-baptis') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                    href="{{ route('pendaftaran-baptis') }}">Pendaftaran Baptis</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link {{ request()->routeIs('pendaftaran-sidi') ? 'active text-primary' : 'text-dark' }} fw-semibold"
-                                                    href="{{ route('pendaftaran-sidi') }}">Pendaftaran Sidi</a>
-                                            </li>
-                                        @else
-                                            <li class="nav-item">
-                                                <a class="nav-link text-dark fw-semibold incomplete-data-link"
-                                                    href="#">Pendaftaran Menikah</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link text-dark fw-semibold incomplete-data-link"
-                                                    href="#">Pendaftaran Baptis</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link text-dark fw-semibold incomplete-data-link"
-                                                    href="#">Pendaftaran Sidi</a>
-                                            </li>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            @endif
+            <h5 class="mt-3 text-dark fw-bold">Gereja Huria Kristen Batak Protestan (HKBP)</h5>
         </div>
     </div>
     <!-- /Search -->

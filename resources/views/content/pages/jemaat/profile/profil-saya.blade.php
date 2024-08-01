@@ -1,5 +1,5 @@
 @php
-    $isMenu = false;
+    $isMenu = true;
     $navbarHideToggle = false;
 @endphp
 
