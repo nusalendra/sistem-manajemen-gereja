@@ -1,0 +1,31 @@
+{
+    "menu": [
+        {
+            "menuHeader": "Pages"
+        },
+        {
+            "url": "/beranda",
+            "name": "Beranda",
+            "icon": "menu-icon tf-icons mdi mdi-home-outline",
+            "slug": "beranda"
+        },
+        {
+            "url": "/pendaftaran-menikah",
+            "name": "Pendaftaran Menikah",
+            "icon": "menu-icon tf-icons mdi mdi-account-multiple",
+            "slug": "pendaftaran-menikah"
+        },
+        {
+            "url": "/pendaftaran-baptis",
+            "name": "Pendaftaran Baptis",
+            "icon": "menu-icon tf-icons mdi mdi-form-select",
+            "slug": "pendaftaran-baptis"
+        },
+        {
+            "url": "/pendaftaran-sidi",
+            "name": "Pendaftaran Sidi",
+            "icon": "menu-icon tf-icons mdi mdi-form-select",
+            "slug": "pendaftaran-sidi"
+        }
+    ]
+}
