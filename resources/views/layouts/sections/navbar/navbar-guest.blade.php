@@ -41,7 +41,7 @@
 
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <div class="navbar-nav align-items-center">
-        <div class="d-flex align-items-center ms-3">
+        <div class="d-flex align-items-center ms-3 mt-2">
             <img src="/logo-transparan.png" alt="Logo HKBP" width="50" height="50" class="me-3">
             <div class="mt-3">
                 <h5 class="mb-0 fw-bold">PROFIL GEREJA</h5>
