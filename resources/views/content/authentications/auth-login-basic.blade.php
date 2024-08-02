@@ -1,3 +1,8 @@
+@php
+    $isNavbar = false;
+    $navbarHideToggle = false;
+@endphp
+
 @extends('layouts/blankLayout')
 
 @section('title', 'Login Basic - Pages')
