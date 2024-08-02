@@ -31,8 +31,24 @@
                             </select>
                             <label for="jenis_kelamin">Jenis Kelamin</label>
                         </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <select name="kondisi_tubuh" class="form-select" aria-label="Default select example" required>
+                                <option selected disabled>Pilih Kondisi Tubuh</option>
+                                <option value="Normal" {{ $data->kondisi_tubuh === 'Normal' ? 'selected' : '' }}>Normal
+                                </option>
+                                <option value="Disabilitas" {{ $data->kondisi_tubuh === 'Disabilitas' ? 'selected' : '' }}>
+                                    Disabilitas
+                                </option>
+                            </select>
+                            <label for="kondisi_tubuh">Kondisi Tubuh</label>
+                        </div>
                     </div>
                     <div class="d-flex">
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir"
+                                placeholder="Masukkan Tempat Lahir" value="{{ $data->tempat_lahir }}" />
+                            <label for="tempat_lahir">Tempat Lahir</label>
+                        </div>
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                             <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir"
                                 placeholder="Masukkan Tanggal Lahir" value="{{ $data->tanggal_lahir }}" />
@@ -46,14 +62,58 @@
                     </div>
                     <div class="d-flex">
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                            <input type="text" name="NIK" class="form-control" id="NIK"
+                            <input type="number" name="NIK" class="form-control" id="NIK"
                                 placeholder="Masukkan NIK" value="{{ $data->NIK }}" />
                             <label for="NIK">NIK</label>
                         </div>
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <input type="number" name="KK" class="form-control" id="KK"
+                                placeholder="Masukkan Nomor Kartu Keluarga (KK)" value="{{ $data->KK }}" />
+                            <label for="KK">Nomor Kartu Keluarga (KK)</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <input type="number" name="nomor_handphone" class="form-control" id="nomor_handphone"
+                                placeholder="Masukkan Nomor Handphone" value="{{ $data->nomor_handphone }}" />
+                            <label for="nomor_handphone">Nomor Handphone</label>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <select name="golongan_darah" class="form-select" aria-label="Default select example" required>
+                                <option selected disabled>Pilih Golongan Darah</option>
+                                <option value="A" {{ $data->golongan_darah === 'A' ? 'selected' : '' }}>A</option>
+                                <option value="B" {{ $data->golongan_darah === 'B' ? 'selected' : '' }}>B</option>
+                                <option value="AB" {{ $data->golongan_darah === 'AB' ? 'selected' : '' }}>AB</option>
+                                <option value="O" {{ $data->golongan_darah === 'O' ? 'selected' : '' }}>O</option>
+                            </select>
+                            <label for="golongan_darah">Golongan Darah</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <input type="text" name="pendidikan" class="form-control" id="pendidikan"
+                                placeholder="Masukkan Pendidikan Terakhir" value="{{ $data->pendidikan }}" />
+                            <label for="pendidikan">Pendidikan Terakhir</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <input type="text" name="pekerjaan" class="form-control" id="pekerjaan"
+                                placeholder="Masukkan Pekerjaan" value="{{ $data->pekerjaan }}" />
+                            <label for="pekerjaan">Pekerjaan</label>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                             <input type="text" name="alamat" class="form-control" id="alamat"
                                 placeholder="Masukkan Alamat" value="{{ $data->alamat }}" />
                             <label for="alamat">Alamat</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <input type="text" name="kabupaten" class="form-control" id="kabupaten"
+                                placeholder="Masukkan Kabupaten" value="{{ $data->kabupaten }}" />
+                            <label for="kabupaten">Kabupaten</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <input type="text" name="provinsi" class="form-control" id="provinsi"
+                                placeholder="Masukkan Provinsi" value="{{ $data->provinsi }}" />
+                            <label for="provinsi">Provinsi</label>
                         </div>
                     </div>
                     <div class="d-flex">
@@ -70,7 +130,8 @@
                     </div>
                     <div class="d-flex">
                         <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                            <select name="status_jemaat" class="form-select" aria-label="Default select example" required>
+                            <select name="status_jemaat" class="form-select" aria-label="Default select example"
+                                required>
                                 <option selected disabled>Pilih Status Kelamin</option>
                                 <option value="Hidup" {{ $data->status_jemaat === 'Hidup' ? 'selected' : '' }}>Hidup
                                 </option>
@@ -302,8 +363,13 @@
                     </div>
                     <div class="form-floating form-floating-outline mb-4">
                         <input type="text" name="username" class="form-control" id="username"
-                            placeholder="Masukkan Username" value="{{ $data->user->username }}" disabled />
+                            placeholder="Masukkan Username" value="{{ $data->user->username }}" />
                         <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating form-floating-outline mb-4">
+                        <input type="email" name="email" class="form-control" id="email"
+                            placeholder="Masukkan Email" value="{{ $data->user->email }}" />
+                        <label for="email">Email</label>
                     </div>
                     <div class="form-floating form-floating-outline mb-4">
                         <input type="password" name="password" id="password" class="form-control phone-mask"
