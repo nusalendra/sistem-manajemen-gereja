@@ -43,11 +43,18 @@
                                 <label class="col-sm-10 col-form-label fw-bold text-dark"
                                     for="basic-default-name">{{ $data->jenis_kelamin }}</label>
                             </div>
-                            {{-- Tanggal Lahir --}}
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">Tanggal Lahir</label>
+                            {{-- Kondisi Tubuh --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Kondisi Tubuh</label>
                             <div class="col-sm-10">
                                 <label class="col-sm-10 col-form-label fw-bold text-dark"
-                                    for="basic-default-name">{{ \Carbon\Carbon::parse($data->tanggal_lahir)->translatedFormat('d F Y') }}</label>
+                                    for="basic-default-name">{{ $data->kondisi_tubuh }}</label>
+                            </div>
+                            {{-- Tanggal Lahir --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-company">Tempat, Tanggal Lahir</label>
+                            <div class="col-sm-10">
+                                <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->tempat_lahir }},
+                                    {{ \Carbon\Carbon::parse($data->tanggal_lahir)->translatedFormat('d F Y') }}</label>
                             </div>
                             {{-- Umur --}}
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Umur</label>
@@ -55,17 +62,54 @@
                                 <label class="col-sm-10 col-form-label fw-bold text-dark"
                                     for="basic-default-name">{{ $data->umur }} Tahun</label>
                             </div>
+                            {{-- NIK --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-company">NIK</label>
+                            <div class="col-sm-10">
+                                <label class="col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->NIK }}</label>
+                            </div>
+                            {{-- Nomor Kartu Keluarga (KK) --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Nomor Kartu Keluarga
+                                (KK)</label>
+                            <div class="col-sm-10">
+                                <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->KK }}</label>
+                            </div>
+                            {{-- Golongan Darah --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Golongan Darah</label>
+                            <div class="col-sm-10">
+                                <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->golongan_darah }}</label>
+                            </div>
+                            {{-- Pendidikan Terakhir --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Pendidikan Terakhir</label>
+                            <div class="col-sm-10">
+                                <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->pendidikan }}</label>
+                            </div>
+                            {{-- Pekerjaan --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Pekerjaan</label>
+                            <div class="col-sm-10">
+                                <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->pekerjaan }}</label>
+                            </div>
                             {{-- Alamat --}}
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Alamat</label>
                             <div class="col-sm-10">
                                 <label class="col-sm-10 col-form-label fw-bold text-dark"
                                     for="basic-default-name">{{ $data->alamat }}</label>
                             </div>
-                            {{-- NIK --}}
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">NIK</label>
+                            {{-- Kabupaten --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Kabupaten</label>
                             <div class="col-sm-10">
-                                <label class="col-form-label fw-bold text-dark"
-                                    for="basic-default-name">{{ $data->NIK }}</label>
+                                <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->kabupaten }}</label>
+                            </div>
+                            {{-- Provinsi --}}
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Provinsi</label>
+                            <div class="col-sm-10">
+                                <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                    for="basic-default-name">{{ $data->provinsi }}</label>
                             </div>
                             {{-- Nama Ayah --}}
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Nama Ayah</label>
@@ -205,6 +249,21 @@
                                 <label class="col-sm-10 col-form-label fw-bold text-dark"
                                     for="basic-default-name">{{ $data->user->username }}</label>
                             </div>
+                            @if ($data->user->email)
+                                {{-- Email --}}
+                                <label class="col-sm-2 col-form-label" for="basic-default-name">Email</label>
+                                <div class="col-sm-10">
+                                    <label class="col-sm-10 col-form-label fw-bold text-dark"
+                                        for="basic-default-name">{{ $data->user->email }}</label>
+                                </div>
+                            @else
+                                {{-- Email --}}
+                                <label class="col-sm-2 col-form-label" for="basic-default-name">Email</label>
+                                <div class="col-sm-10">
+                                    <label class="col-sm-10 col-form-label fw-bold text-danger"
+                                        for="basic-default-name">-</label>
+                                </div>
+                            @endif
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Password</label>
                             <div class="col-sm-10">
                                 <label class="col-sm-10 col-form-label fw-bold text-danger"

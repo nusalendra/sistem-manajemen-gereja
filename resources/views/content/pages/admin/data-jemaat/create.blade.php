@@ -36,6 +36,14 @@
                             </select>
                             <label for="jenis_kelamin">Jenis Kelamin <span class="text-danger">*</span></label>
                         </div>
+                        <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                            <select name="kondisi_tubuh" class="form-select" aria-label="Default select example" required>
+                                <option selected disabled>Pilih Kondisi Tubuh</option>
+                                <option value="Normal">Normal</option>
+                                <option value="Disabilitas">Disabilitas</option>
+                            </select>
+                            <label for="kondisi_tubuh">Kondisi Tubuh <span class="text-danger">*</span></label>
+                        </div>
                     </div>
                     <!-- Inputan untuk jemaat baru -->
                     <div id="inputanJemaatBaru" style="display: none;">
@@ -45,6 +53,11 @@
                     <!-- Inputan untuk jemaat lama -->
                     <div id="inputanJemaatLama" style="display: none;">
                         <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir"
+                                    placeholder="Masukkan Tempat Lahir" />
+                                <label for="tempat_lahir">Tempat Lahir <span class="text-danger">*</span></label>
+                            </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir"
                                     placeholder="Masukkan Tanggal Lahir" />
@@ -58,14 +71,59 @@
                         </div>
                         <div class="d-flex">
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
-                                <input type="text" name="NIK" class="form-control" id="NIK"
+                                <input type="number" name="NIK" class="form-control" id="NIK"
                                     placeholder="Masukkan NIK" />
                                 <label for="NIK">NIK <span class="text-danger">*</span></label>
                             </div>
                             <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="number" name="KK" class="form-control" id="KK"
+                                    placeholder="Masukkan Nomor KK" />
+                                <label for="KK">Nomor Kartu Keluarga (KK) <span class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="number" name="nomor_handphone" class="form-control" id="nomor_handphone"
+                                    placeholder="Masukkan Nomor Handphone" />
+                                <label for="nomor_handphone">Nomor Handphone <span class="text-danger">*</span></label>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <select name="golongan_darah" class="form-select" aria-label="Default select example"
+                                    required>
+                                    <option selected disabled>Pilih Golongan Darah</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="AB">AB</option>
+                                    <option value="O">O</option>
+                                </select>
+                                <label for="golongan_darah">Golongan Darah <span class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="pendidikan" class="form-control" id="pendidikan"
+                                    placeholder="Masukkan Pendidikan Terakhir" />
+                                <label for="pendidikan">Pendidikan Terakhir <span class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="pekerjaan" class="form-control" id="pekerjaan"
+                                    placeholder="Masukkan Pekerjaan" />
+                                <label for="pekerjaan">Pekerjaan <span class="text-danger">*</span></label>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
                                 <input type="text" name="alamat" class="form-control" id="alamat"
                                     placeholder="Masukkan Alamat" />
                                 <label for="alamat">Alamat <span class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="kabupaten" class="form-control" id="kabupaten"
+                                    placeholder="Masukkan Kabupaten" />
+                                <label for="kabupaten">Kabupaten <span class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-4 flex-fill mx-2">
+                                <input type="text" name="provinsi" class="form-control" id="provinsi"
+                                    placeholder="Masukkan Provinsi" />
+                                <label for="provinsi">Provinsi <span class="text-danger">*</span></label>
                             </div>
                         </div>
                         <div class="d-flex">
@@ -186,6 +244,11 @@
                         <input type="text" name="username" class="form-control" id="username"
                             placeholder="Masukkan Username" required />
                         <label for="username">Username <span class="text-danger">*</span></label>
+                    </div>
+                    <div class="form-floating form-floating-outline mb-4">
+                        <input type="email" name="email" class="form-control" id="email"
+                            placeholder="Masukkan Email" />
+                        <label for="email">Email</label>
                     </div>
                     <div class="form-floating form-floating-outline mb-4">
                         <input type="password" name="password" id="password" class="form-control phone-mask"

@@ -20,12 +20,21 @@ return new class extends Migration {
       $table->string('nama_lengkap');
       $table->string('jenis_kelamin');
       $table->string('status_jemaat');
-      $table->string('alamat')->nullable();
+      $table->string('NIK')->nullable();
+      $table->string('KK')->nullable();
+      $table->string('nomor_handphone')->nullable();
+      $table->string('tempat_lahir')->nullable();
       $table->date('tanggal_lahir')->nullable();
       $table->integer('umur')->nullable();
+      $table->string('golongan_darah')->nullable();
+      $table->string('kondisi_tubuh')->nullable();
+      $table->string('alamat')->nullable();
+      $table->string('kabupaten')->nullable();
+      $table->string('provinsi')->nullable();
+      $table->string('pendidikan')->nullable();
+      $table->string('pekerjaan')->nullable();
       $table->string('nama_ayah')->nullable();
       $table->string('nama_ibu')->nullable();
-      $table->string('NIK')->nullable();
       $table->timestamps();
     });
   }
