@@ -36,8 +36,8 @@
                                     </div>
                                 </div>
                                 <div class="ms-3">
-                                    <div class="small mb-1">Total Jemaat Terdaftar</div>
-                                    <h5 class="mb-0">{{ $totalJemaat }} Jemaat</h5>
+                                    <div class="small mb-1">Total Akun Jemaat Terdaftar</div>
+                                    <h5 class="mb-0">{{ $totalJemaat }} Akun Jemaat</h5>
                                 </div>
                             </div>
                         </div>
