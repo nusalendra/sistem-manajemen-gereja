@@ -43,7 +43,7 @@
     <!-- Search -->
     <div class="navbar-nav align-items-center">
         <div class="app-brand justify-content-center">
-            <h5 class="mt-3 text-dark fw-bold">Gereja Huria Kristen Batak Protestan (HKBP)</h5>
+            {{-- <h5 class="mt-3 text-dark fw-bold">GEREJA HURIA KRISTEN BATAK PROTESTAN</h5> --}}
         </div>
     </div>
     <!-- /Search -->
